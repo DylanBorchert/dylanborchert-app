@@ -1,14 +1,13 @@
 "use client"
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useScrollDirection } from 'react-use-scroll-direction'
-import FlipText from "@/components/animated-components/FlipText.jsx";
 import { Rotate as Hamburger } from 'hamburger-react'
-import SlideText from "@/components/animated-components/SlideText.jsx";
-import NavigationMenu from "@/components/NavigationMenu.jsx";
+import SlideText from "@/components/animated-components/SlideText";
+import NavMenu from "./NavMenu";
 import classNames from "classnames";
 import Link from 'next/link';
 
-const Navbar = (props) => {
+const Navbar = (props: any) => {
 
     const [isOpen, setOpen] = useState(false)
     const [scrollWidth, setScrollWidth] = useState(0);
@@ -23,7 +22,7 @@ const Navbar = (props) => {
             top: 0,
             behavior: 'smooth'
         }
-        window.scrollTo(scrollOptions);
+        window.scrollTo(scrollOptions as any);
     }
 
     const getScrollState = useMemo(() => {
@@ -76,7 +75,7 @@ const Navbar = (props) => {
             </div>
 
             <div className="z-40 bg-black bottom-shadow-nav">
-                {isOpen ? <NavigationMenu isOpen={isOpen} /> : null}
+                {isOpen ? <NavMenu isOpen={isOpen} /> : null}
                 <div className="flex align-middle justify-between  z-20 max-w-[1060px] mx-auto px-5">
 
                     <div className="h-[2rem] leading-[48px] z-20 my-auto pt-1 ml-2">

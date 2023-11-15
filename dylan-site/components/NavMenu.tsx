@@ -1,15 +1,9 @@
-import { React, useState, useEffect } from "react";
-import { GetServerSidePropsContext } from 'next';
-
 import SlideTextLarge from "@/components/animated-components/SlideTextLarge.jsx";
-import axios from "axios";
-import Socials from "./Socials.jsx";
-import ContactCard from "./ContactCard.jsx";
 import Link from 'next/link';
 
 
-function NavigationMenu(props) {
-
+function NavigationMenu(props: any) {
+    ``
 
     return (
         <div className="fixed w-full bg-black flex flex-col align-middle justify-around h-[100dvh] z-20 animate-fade-down-nav">
@@ -72,8 +66,6 @@ function NavigationMenu(props) {
                             />
                         </Link>
                     </div>
-                    {/* <Socials />
-                    <ContactCard /> */}
                 </div>
                 <div className="flex-grow"></div>
             </div>
@@ -86,19 +78,6 @@ function NavigationMenu(props) {
                         Contact
                     </span>
                 </div>
-                {/* REMOVED COMMIT MESSAGE 
-                <span className="hidden py-2 sm:block">
-                    Last updated on {props.commit_msg[1]} [
-                    <a
-                        href={`https://github.com/DylanBorchert/dylanborchert-Site/commit/${props.commit_msg[0]}`}
-                        target="_blank"
-                        rel="noreferrer"
-                        title={props.commit_msg[2]}
-                    >
-                    commit {props.commit_msg[0].split(" ")[0].substring(0, 7)}
-                    </a>
-                    ]
-                </span> */}
             </div>
         </div>
     )
