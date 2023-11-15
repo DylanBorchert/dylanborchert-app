@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+"use client";
 import Carousel from '@/components/strapi-components/Carousel'
 import Showcase from '@/components/strapi-components/Showcase'
 import ListView from '@/components/strapi-components/ListView';

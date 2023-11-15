@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Chevron } from "../icons/chevron";
+import { Chevron } from "@/public/chevron";
 import classNames from "classnames";
 import Link from "next/link";
 

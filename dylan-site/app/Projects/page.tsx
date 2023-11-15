@@ -1,6 +1,6 @@
 "use server";
 
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/NavBar";
 
 export default async function Projects() {
 
