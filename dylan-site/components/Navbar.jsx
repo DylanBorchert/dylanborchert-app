@@ -76,7 +76,7 @@ const Navbar = (props) => {
             </div>
 
             <div className="z-40 bg-black bottom-shadow-nav">
-                {/* {isOpen ? <NavigationMenu isOpen={isOpen} /> : null} */}
+                {isOpen ? <NavigationMenu isOpen={isOpen} /> : null}
                 <div className="flex align-middle justify-between  z-20 max-w-[1060px] mx-auto px-5">
 
                     <div className="h-[2rem] leading-[48px] z-20 my-auto pt-1 ml-2">
