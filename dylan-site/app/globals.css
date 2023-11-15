@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('./component.css');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+}
+
+html, body {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.debug-m * {
+  box-shadow: inset 0px 0px 1px 1px gold;
+}
+
+.debug-s {
+  box-shadow: inset 0px 0px 1px 1px red;
+}
+
+.debug-s-1 {
+  box-shadow: inset 0px 0px 1px 1px turquoise;
+}
+
+.debug-s-2 {
+  box-shadow: inset 0px 0px 1px 1px orange;
+}
+
+.debug{
+  box-shadow: inset 0px 0px 1px 1px lime;
+}
+
+.debug *{
+  box-shadow: inset 0px 0px 1px 1px magenta;
+}
+
+.bottom-shadow-nav {
+  box-shadow: inset 0px -2px 1px -1px rgba(100,100,100,1);
+}
+
+.glow-shadow-md{
+  box-shadow: 0px 0px 400px 400px rgba(2, 97, 161, 0.2);
+}
+
+.glow-shadow-sm{
+  box-shadow: 0px 0px 200px 100px rgba(2, 97, 161, 0.2);
+}
+
+
+@layer base {
+  .font-outline-white {
+    -webkit-text-stroke: 1px white;
+  }
+
+  .font-outline-secondary-1 {
+    -webkit-text-stroke: 1px #0261A1;
+  }
+
+  .font-outline-primary-2 {
+    -webkit-text-stroke: 1px #FFBE0B;
+  }
+}
+
+@layer base {
+  :root {
+    --container-size: 1060px;
+    --background-color: #09090b;
+  }
+
+}
+
+@layer utilities {
+  .slide-center {
+    transform: translateX(calc(max(var(--container-size), 100vw) / 2 - calc(var(--container-size) / 2)))
+  }
+  .small-caps {
+    font-variant-caps: small-caps;
+  }
+}
+
+
+
+.about-gradient {
+  background-color: rgba(0,0,0,0);
+  background-image:         linear-gradient(top, rgba(0,0,0,0) 0%, var(--background-color) 50dvh); /* W3C */
+  background-image:    -moz-linear-gradient(top, rgba(0,0,0,0) 0%, var(--background-color) 50dvh); /* FF3.6+ */
+  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, var(--background-color) 50dvh); /* Chrome10+,Safari5.1+ */
+}
