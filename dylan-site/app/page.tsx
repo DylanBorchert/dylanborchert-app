@@ -6,6 +6,9 @@ import Strapi from '@/hooks/Strapi'
 
 export default async function Home() {
 
+  const { data, error } = await Strapi.getHomePage();
+
+  console.log(data)
 
 
   return (
