@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+	images: {
+		domains: ["localhost", "strapi.phantommedia.online"],
+	},
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
