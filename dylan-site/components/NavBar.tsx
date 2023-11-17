@@ -27,6 +27,11 @@ const NavBar = (props: any) => {
         window.scrollTo(scrollOptions as any);
     }
 
+    const breadcrumb = useMemo(() => {
+        if (pathname == "/") return "/Home";
+        return "/" + pathname.split("/")[1]
+    }, [pathname]);
+
     useEffect(() => {
         setOpen(false); // Close the navigation panel
     }, [pathname]);
@@ -80,22 +85,27 @@ const NavBar = (props: any) => {
 
             <div className="bg-black bottom-shadow-nav">
                 {isOpen ? <NavMenu isOpen={isOpen} /> : null}
-                <div className="flex align-middle justify-between  z-50 max-w-[1060px] mx-auto px-5">
-                    <div className="h-[2rem] leading-[48px] z-20 my-auto pt-1 ml-2">
-                        <Link href="/">
-                            <SlideText
-                                text1={
-                                    <div className=" text-[1rem] tracking-tighter">
-                                        dylanborchert.ca
-                                    </div>
-                                }
-                                text2={
-                                    <div className="text-primary-1 text-[1rem] tracking-tighter">
-                                        dylanborchert.ca
-                                    </div>
-                                }
-                            />
-                        </Link>
+                <div className="flex align-middle justify-between z-50 max-w-[1060px] mx-auto px-5">
+                    <div className="flex z-20">
+                        <div className="h-[2rem] leading-[48px] my-auto pt-1 ml-2">
+                            <Link href="/">
+                                <SlideText
+                                    text1={
+                                        <div className=" text-[1rem] tracking-tighter">
+                                            dylanborchert.ca
+                                        </div>
+                                    }
+                                    text2={
+                                        <div className="text-primary-1 text-[1rem] tracking-tighter">
+                                            dylanborchert.ca
+                                        </div>
+                                    }
+                                />
+                            </Link>
+                        </div>
+                        <div className="h-[48px] leading-[48px] pl-1 font-light tracking-tighter">
+                            {breadcrumb}
+                        </div>
                     </div>
                     <div className="sm:flex flex-row justify-around z-20 hidden">
                         <Link href="/">
