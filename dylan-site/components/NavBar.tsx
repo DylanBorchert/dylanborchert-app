@@ -103,7 +103,7 @@ const NavBar = (props: any) => {
                                 />
                             </Link>
                         </div>
-                        <div className="h-[48px] leading-[48px] pl-1 font-light tracking-tighter">
+                        <div className="h-[48px] leading-[48px] pl-1 font-light tracking-tighter max-w-[200px] truncate">
                             {breadcrumb}
                         </div>
                     </div>
