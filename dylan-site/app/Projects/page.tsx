@@ -6,10 +6,11 @@ import Strapi from "@/hooks/Strapi";
 export default async function Projects() {
 
     const { data, error } = await Strapi.getProjectPage();
+    const { data: allProjects, error: allProjectsError } = await Strapi.getAllProjects();
 
     return (
         <div>
-            {data ? <ProjectsClient content={data as any} /> : <></>}
+            {data ? <ProjectsClient content={data as any} allProjects={{ projects: { data: allProjects } }} /> : <></>}
         </div>
     )
 }

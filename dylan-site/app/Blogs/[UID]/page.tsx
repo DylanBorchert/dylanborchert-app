@@ -7,7 +7,7 @@ export default async function Page({ params }: { params: { UID: string } }) {
 
     return (
         <div>
-            {data ? <BlogClient content={data as any} /> : <></>}
+            {data ? <BlogClient content={data[0].attributes as any} /> : <></>}
         </div>
     )
 }

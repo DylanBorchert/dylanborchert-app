@@ -6,10 +6,11 @@ import Strapi from "@/hooks/Strapi";
 export default async function Blogs() {
 
     const { data, error } = await Strapi.getBlogPage();
+    const { data: allBlogs, error: allBlogsError } = await Strapi.getAllBlogs();
 
     return (
         <div>
-            {data ? <BlogsClient content={data as any} /> : <></>}
+            {data ? <BlogsClient content={data as any} allBlogs={{ blogs: { data: allBlogs } }} /> : <></>}
         </div>
     )
 }

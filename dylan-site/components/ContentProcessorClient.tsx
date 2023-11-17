@@ -9,23 +9,22 @@ import rehypeSlug from "rehype-slug";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
+export default function ContentProcessorClient({ content, allContent }: any) {
 
-function ContentProcessor({ content }) {
-
-  const handleListOrCarousel = (item) => {
-    if (item["style"] === 'carousel') {
-      return (
-        <Carousel content={item.blogs ? item.blogs.data : item.projects.data} type={item.blogs ? 'Blogs' : 'Projects'} />
-      )
-    } else if (item["style"] === 'list') {
+  const handleListOrCarousel = (item: any) => {
+    if (item.style === 'list') {
       return (
         <ListView content={item.blogs ? item.blogs.data : item.projects.data} type={item.blogs ? 'Blogs' : 'Projects'} />
+      )
+    } else if (item.style === 'carousel') {
+      return (
+        <Carousel content={item.blogs ? item.blogs.data : item.projects.data} type={item.blogs ? 'Blogs' : 'Projects'} />
       )
     }
   }
 
 
-  const MarkdownHelper = (item, index) => {
+  const MarkdownHelper = (item: any, index: any) => {
     return (
       <ReactMarkdown
         key={index}
@@ -33,7 +32,7 @@ function ContentProcessor({ content }) {
         remarkPlugins={[remarkToc, remarkGfm]}
         rehypePlugins={[rehypeSlug]}
         components={{
-          code: ({ node, inline, className, children, ...content }) => {
+          code: ({ node, inline, className, children, ...content }: any) => {
             const match = /language-(\w+)/.exec(className || "");
             return !inline && match ? (
               <SyntaxHighlighter
@@ -51,7 +50,7 @@ function ContentProcessor({ content }) {
               </code>
             );
           },
-          a: ({ node, inline, className, children, ...content }) => {
+          a: ({ node, inline, className, children, ...content }: any) => {
             return (
               <a {...content} target='_blank' className={"underline " + className}>
                 {children}
@@ -69,7 +68,7 @@ function ContentProcessor({ content }) {
     <div className='py-8'>
       <div className='w-full h-[50%] absolute -z-10'>
       </div>
-      {content.map((item, index) => {
+      {content.map((item: any, index: number) => {
         switch (item["__component"]) {
           case 'general.highlight-projects':
           case 'general.highlight-blogs':
@@ -81,13 +80,28 @@ function ContentProcessor({ content }) {
                 {handleListOrCarousel(item)}
               </div>
             )
-            break;
           case 'general.all-projects':
+            item.projects = allContent.projects
+            return (
+              <div key={index}>
+                <h1 className="font-bold text-xl my-3 max-w-[1060px] mx-auto pl-5">
+                  {item["title"]}
+                </h1>
+                {handleListOrCarousel(item)}
+              </div>
+            )
           case 'general.all-blogs':
-            break;
+            item.blogs = allContent.blogs
+            return (
+              <div key={index}>
+                <h1 className="font-bold text-xl my-3 max-w-[1060px] mx-auto pl-5">
+                  {item["title"]}
+                </h1>
+                {handleListOrCarousel(item)}
+              </div>
+            )
           case 'general.markdown':
             return (MarkdownHelper(item, index))
-            break;
           case 'general.showcase-project':
             return (
               <div key={index}>
@@ -97,7 +111,6 @@ function ContentProcessor({ content }) {
                 <Showcase />
               </div>
             )
-            break;
           default:
             console.warn("Unknown component type: " + item["__component"])
             console.log(item)
@@ -107,5 +120,3 @@ function ContentProcessor({ content }) {
     </div>
   )
 }
-
-export default ContentProcessor

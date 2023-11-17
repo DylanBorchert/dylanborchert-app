@@ -10,9 +10,12 @@ const fetchData = async (url: String, params: any) => {
 		const response = await axiosConfig.get(url as string, params as any);
 		if (response.data) {
 			if (response.data.data.length > 0) {
-				return { data: response.data.data[0].attributes, error: null };
+				return { data: response.data.data, error: null }; // will catch with all and posts
+			} else if (response.data.data.attributes) {
+				return { data: response.data.data.attributes, error: null };
+			} else {
+				return { data: undefined, error: "No data found" };
 			}
-			return { data: response.data.data.attributes, error: null };
 		} else {
 			return { data: undefined, error: "No data found" };
 		}
@@ -127,6 +130,8 @@ export default {
 	getAboutPage,
 	getProjectPage,
 	getBlogPage,
+	getAllProjects,
+	getAllBlogs,
 	getProject,
 	getBlog,
 };
