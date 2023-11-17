@@ -66,7 +66,7 @@ const NavBar = (props: any) => {
     return (
         <>
             <div className={
-                classNames("right-5 bottom-5 w-6 h-6 fixed z-20 transition duration-150 ease-in-out",
+                classNames("right-5 bottom-5 w-6 h-6 fixed z-50 transition duration-150 ease-in-out",
                     { "opacity-0 ": getScrollState == "none" },
                     { "opacity-100 hover:cursor-pointer": getScrollState == "up" },
                     { "opacity-100 hover:cursor-pointer": getScrollState == "down" }
@@ -78,9 +78,9 @@ const NavBar = (props: any) => {
                 </svg>
             </div>
 
-            <div className="bg-black bottom-shadow-nav z-50">
+            <div className="bg-black bottom-shadow-nav">
                 {isOpen ? <NavMenu isOpen={isOpen} /> : null}
-                <div className="flex align-middle justify-between  z-20 max-w-[1060px] mx-auto px-5">
+                <div className="flex align-middle justify-between  z-50 max-w-[1060px] mx-auto px-5">
                     <div className="h-[2rem] leading-[48px] z-20 my-auto pt-1 ml-2">
                         <Link href="/">
                             <SlideText
@@ -119,7 +119,7 @@ const NavBar = (props: any) => {
                             </span>
                         </Link>
                     </div>
-                    <div className="h-[48px] leading-[48px] z-20 sm:hidden">
+                    <div className="h-[48px] leading-[48px] z-50 sm:hidden">
                         <Hamburger color={"#f1f1f1"} size={20} rounded toggled={isOpen} toggle={setOpen} />
                     </div>
                 </div>

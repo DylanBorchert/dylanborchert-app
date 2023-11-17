@@ -9,10 +9,9 @@ import Image from "next/image";
 export default function About({ content }: any) {
 
     return (
-        <div className="min-h-[calc(100dvh-3rem)]">
-            <div className="home-gradient absolute w-full h-full top-0 z-[-1]"></div>
+        <div className="min-h-[calc(100dvh-3rem)] -z-10">
             <div className="mx-auto max-w-[1060px] px-5 grid sm:grid-cols-[14rem_2fr] grid-cols-1 pt-8">
-                <div className="m-auto rounded-full bg-black glow-shadow-sm z-[-1]">
+                <div className="m-auto rounded-full bg-white glow-shadow-sm relative -z-[1]">
                     <Image src={`https://strapi.phantommedia.online${content.portrait.data.attributes.url}`} width={500} height={500} alt="Portarit of Dylan Borchert" className="w-52 h-52 rounded-full" />
                 </div>
                 <div className="flex flex-col justify-center p-5 h-full  m-auto sm:m-0">
@@ -34,7 +33,9 @@ export default function About({ content }: any) {
                     </div>
                 </div>
             </div>
-            <ContentProcessorClient content={content.content} />
+            <div className="">
+                <ContentProcessorClient content={content.content} />
+            </div>
         </div>
     )
 }
