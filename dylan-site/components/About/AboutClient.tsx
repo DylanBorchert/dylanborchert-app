@@ -13,7 +13,7 @@ export default function About({ content }: any) {
             <div className="home-gradient absolute w-full h-full top-0 z-[-1]"></div>
             <div className="mx-auto max-w-[1060px] px-5 grid sm:grid-cols-[14rem_2fr] grid-cols-1 pt-8">
                 <div className="m-auto rounded-full bg-black glow-shadow-sm z-[-1]">
-                    <Image src={`https://strapi.phantommedia.online${content.portrait.data.attributes.url}`} width={52} height={52} alt="Portarit of Dylan Borchert" className="w-52 h-52 rounded-full" />
+                    <Image src={`https://strapi.phantommedia.online${content.portrait.data.attributes.url}`} width={500} height={500} alt="Portarit of Dylan Borchert" className="w-52 h-52 rounded-full" />
                 </div>
                 <div className="flex flex-col justify-center p-5 h-full  m-auto sm:m-0">
                     <p className="text-lg pt-3">
