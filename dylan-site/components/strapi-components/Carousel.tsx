@@ -1,3 +1,4 @@
+"use client";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Chevron } from "@/public/chevron";
 import classNames from "classnames";
@@ -7,8 +8,6 @@ const slideWidth = 300;
 const slideMargin = 40;
 
 const scrollToSlide = (slider: HTMLUListElement | null, slideIndex: number) => {
-    console.log(slider);
-    console.log(slideIndex);
     if (!slider) return;
     slider.scrollTo({
         left: slideIndex * (slideWidth + slideMargin),
@@ -55,7 +54,6 @@ function Carousel(props: any) {
         } else {
             setHasScrollableArea(sliderRef.current.scrollWidth > sliderRef.current.clientWidth)
         }
-        console.log(props.content);
     }, [sliderPosition]);
 
 
@@ -72,7 +70,7 @@ function Carousel(props: any) {
                 >
                     {props.content.map((slide: any) => (
                         <li
-                            className="snap-start snap-always shrink-0 text-white scroll-mx-5 ml-5 py-2"
+                            className="snap-start snap-always shrink-0  scroll-mx-5 ml-5 py-2"
                             key={slide.id}
                         >
 
@@ -87,7 +85,7 @@ function Carousel(props: any) {
                                         </p>
                                     </div>
                                     <div className="absolute bottom-0 flex w-full justify-between">
-                                        <div className="flex flex-col justify-center text-white/">
+                                        <div className="flex flex-col justify-center /">
                                             <p className="text-sm h-5 px-5">
                                                 {new Date(slide.attributes.updatedAt).toLocaleString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })}
                                             </p>
@@ -95,7 +93,7 @@ function Carousel(props: any) {
                                         <Link href={`${props.type}/${slide.attributes.UID}`}>
                                             <div className=" bg-white/5 m-3 py-2 px-3 rounded-full text-sm group-hover/item:bg-primary-1 group-hover/item:text-black">
                                                 Read
-                                                <svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="1em" height="1em" className="inline-flex shrink-0 text-xl ml-auto opacity-60"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" strokeLinejoin="round" strokeLinejoin="round" strokeWidth="1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="1em" height="1em" className="inline-flex shrink-0 text-xl ml-auto opacity-60"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                                             </div>
                                         </Link>
                                     </div>

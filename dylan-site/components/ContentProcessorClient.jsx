@@ -10,8 +10,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 
-function ContentProcessor(props) {
-
+function ContentProcessor({ content }) {
 
   const handleListOrCarousel = (item) => {
     if (item["style"] === 'carousel') {
@@ -29,17 +28,16 @@ function ContentProcessor(props) {
   const MarkdownHelper = (item, index) => {
     return (
       <ReactMarkdown
-        linkTarget="_blank"
         key={index}
         className="markdown max-w-[1060px] mx-auto px-5 text-none"
         remarkPlugins={[remarkToc, remarkGfm]}
         rehypePlugins={[rehypeSlug]}
         components={{
-          code: ({ node, inline, className, children, ...props }) => {
+          code: ({ node, inline, className, children, ...content }) => {
             const match = /language-(\w+)/.exec(className || "");
             return !inline && match ? (
               <SyntaxHighlighter
-                {...props}
+                {...content}
                 style={vscDarkPlus}
                 data-start-line={1}
                 language={match[1]}
@@ -48,9 +46,16 @@ function ContentProcessor(props) {
                 {String(children).replace(/\n$/, "")}
               </SyntaxHighlighter>
             ) : (
-              <code {...props} className={"inline " + className}>
+              <code {...content} className={"inline " + className}>
                 {children}
               </code>
+            );
+          },
+          a: ({ node, inline, className, children, ...content }) => {
+            return (
+              <a {...content} target='_blank' className={"underline " + className}>
+                {children}
+              </a>
             );
           }
         }}
@@ -64,7 +69,7 @@ function ContentProcessor(props) {
     <div className='py-8'>
       <div className='w-full h-[50%] absolute -z-10'>
       </div>
-      {props.content.map((item, index) => {
+      {content.map((item, index) => {
         switch (item["__component"]) {
           case 'general.highlight-projects':
           case 'general.highlight-blogs':
@@ -76,11 +81,13 @@ function ContentProcessor(props) {
                 {handleListOrCarousel(item)}
               </div>
             )
+            break;
           case 'general.all-projects':
           case 'general.all-blogs':
             break;
           case 'general.markdown':
             return (MarkdownHelper(item, index))
+            break;
           case 'general.showcase-project':
             return (
               <div key={index}>
@@ -90,6 +97,7 @@ function ContentProcessor(props) {
                 <Showcase />
               </div>
             )
+            break;
           default:
             console.warn("Unknown component type: " + item["__component"])
             console.log(item)

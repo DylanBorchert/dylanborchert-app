@@ -1,12 +1,15 @@
 "use server";
 
-import Navbar from "@/components/NavBar";
+import BlogsClient from "@/components/Blogs/BlogsClient";
+import Strapi from "@/hooks/Strapi";
 
-export default async function Blog() {
+export default async function Blogs() {
+
+    const { data, error } = await Strapi.getBlogPage();
 
     return (
         <div>
-            <Navbar />
+            {data ? <BlogsClient content={data as any} /> : <></>}
         </div>
     )
 }

@@ -1,5 +1,6 @@
 "use client"
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { usePathname } from 'next/navigation'
 import { useScrollDirection } from 'react-use-scroll-direction'
 import { Rotate as Hamburger } from 'hamburger-react'
 import SlideText from "@/components/animated-components/SlideText";
@@ -7,7 +8,8 @@ import NavMenu from "./NavMenu";
 import classNames from "classnames";
 import Link from 'next/link';
 
-const Navbar = (props: any) => {
+const NavBar = (props: any) => {
+    const pathname = usePathname()
 
     const [isOpen, setOpen] = useState(false)
     const [scrollWidth, setScrollWidth] = useState(0);
@@ -24,6 +26,11 @@ const Navbar = (props: any) => {
         }
         window.scrollTo(scrollOptions as any);
     }
+
+    useEffect(() => {
+        setOpen(false); // Close the navigation panel
+    }, [pathname]);
+
 
     const getScrollState = useMemo(() => {
 
@@ -54,9 +61,6 @@ const Navbar = (props: any) => {
 
         window.addEventListener("scroll", updateScroll);
 
-        console.log(getScrollState);
-
-
     }, [isOpen, getScrollState]);
 
     return (
@@ -74,15 +78,14 @@ const Navbar = (props: any) => {
                 </svg>
             </div>
 
-            <div className="z-40 bg-black bottom-shadow-nav">
+            <div className="bg-black bottom-shadow-nav z-50">
                 {isOpen ? <NavMenu isOpen={isOpen} /> : null}
                 <div className="flex align-middle justify-between  z-20 max-w-[1060px] mx-auto px-5">
-
                     <div className="h-[2rem] leading-[48px] z-20 my-auto pt-1 ml-2">
                         <Link href="/">
                             <SlideText
                                 text1={
-                                    <div className="text-white text-[1rem] tracking-tighter">
+                                    <div className=" text-[1rem] tracking-tighter">
                                         dylanborchert.ca
                                     </div>
                                 }
@@ -96,28 +99,28 @@ const Navbar = (props: any) => {
                     </div>
                     <div className="sm:flex flex-row justify-around z-20 hidden">
                         <Link href="/">
-                            <span className="text-white h-[48px] leading-[48px] text-sm hover:text-primary-1 px-3">
+                            <span className=" h-[48px] leading-[48px] text-sm hover:text-primary-1 px-3">
                                 Home
                             </span>
                         </Link>
-                        <Link href="/About">
-                            <span className="text-white h-[48px] leading-[48px] text-sm hover:text-primary-1 px-3">
+                        <Link href="/About" >
+                            <span className=" h-[48px] leading-[48px] text-sm hover:text-primary-1 px-3">
                                 About
                             </span>
                         </Link>
                         <Link href="/Projects">
-                            <span className="text-white h-[48px] leading-[48px] text-sm hover:text-primary-1 px-3">
+                            <span className=" h-[48px] leading-[48px] text-sm hover:text-primary-1 px-3">
                                 Projects
                             </span>
                         </Link>
                         <Link href="/Blogs">
-                            <span className="text-white h-[48px] leading-[48px] text-sm hover:text-primary-1 px-3">
+                            <span className=" h-[48px] leading-[48px] text-sm hover:text-primary-1 px-3">
                                 Blogs
                             </span>
                         </Link>
                     </div>
                     <div className="h-[48px] leading-[48px] z-20 sm:hidden">
-                        {/* <Hamburger color={"#f1f1f1"} size={20} rounded toggled={isOpen} toggle={setOpen} /> */}
+                        <Hamburger color={"#f1f1f1"} size={20} rounded toggled={isOpen} toggle={setOpen} />
                     </div>
                 </div>
             </div>
@@ -126,4 +129,4 @@ const Navbar = (props: any) => {
 
 }
 
-export default Navbar;
+export default NavBar;

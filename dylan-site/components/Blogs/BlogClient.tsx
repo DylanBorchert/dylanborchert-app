@@ -1,7 +1,7 @@
 "use client";
 import ContentProcessorClient from "../ContentProcessorClient";
 
-export default function BlogsClient({ content }: any) {
+export default function BlogClient({ content }: any) {
     return (
         <ContentProcessorClient content={content.content} />
     )

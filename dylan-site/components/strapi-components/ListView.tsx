@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 
 
@@ -17,7 +18,7 @@ function ListView(props: any) {
                                 </p>
                                 <div className="flex-grow"></div>
                                 <div className="flex w-full justify-between">
-                                    <div className="flex flex-col justify-center text-white/">
+                                    <div className="flex flex-col justify-center /">
                                         <p className="text-sm">
                                             {new Date(slide.attributes.updatedAt).toLocaleString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })}
                                         </p>
@@ -25,7 +26,7 @@ function ListView(props: any) {
                                     <Link href={`${props.type}/${slide.attributes.UID}`}>
                                         <div className="bg-white/5 py-2 px-3 rounded-full text-sm group-hover/item:bg-primary-1 group-hover/item:text-black">
                                             Read
-                                            <svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="1em" height="1em" className="inline-flex shrink-0 text-xl ml-auto opacity-60"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" strokeLinejoin="round" strokeLinejoin="round" strokeWidth="1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="1em" height="1em" className="inline-flex shrink-0 text-xl ml-auto opacity-60"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                                         </div>
                                     </Link>
                                 </div>

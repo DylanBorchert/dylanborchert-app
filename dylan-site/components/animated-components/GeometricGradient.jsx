@@ -1,12 +1,7 @@
-
-import './GeometricGradient.css';
-
 const GeometricGradient = (props) => {
-
- return (
-       <div className="GeometricGradient -z-20"></div>
- );
+      return (
+            <div className="GeometricGradient z-[-4]"></div>
+      );
 }
-
 
 export default GeometricGradient;

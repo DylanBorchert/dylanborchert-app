@@ -9,7 +9,10 @@ const fetchData = async (url: String, params: any) => {
 	try {
 		const response = await axiosConfig.get(url as string, params as any);
 		if (response.data) {
-			return { data: response.data, error: null };
+			if (response.data.data.length > 0) {
+				return { data: response.data.data[0].attributes, error: null };
+			}
+			return { data: response.data.data.attributes, error: null };
 		} else {
 			return { data: undefined, error: "No data found" };
 		}

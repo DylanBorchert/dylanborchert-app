@@ -7,7 +7,7 @@ function NavigationMenu(props: any) {
 
     return (
         <div className="fixed w-full bg-black flex flex-col align-middle justify-around h-[100dvh] z-20 animate-fade-down-nav">
-            <div className="h-24 relative text-white">
+            <div className="h-24 relative ">
             </div>
             <div className="w-full flex flex-row m-auto">
                 <div className="flex-grow"></div>
@@ -16,7 +16,7 @@ function NavigationMenu(props: any) {
                         <Link href="/">
                             <SlideTextLarge
                                 text1={
-                                    <div className="text-white small-caps">
+                                    <div className=" small-caps">
                                         Home
                                     </div>}
                                 text2={
@@ -29,7 +29,7 @@ function NavigationMenu(props: any) {
                         <Link href="/About">
                             <SlideTextLarge
                                 text1={
-                                    <div className=" text-white small-caps">
+                                    <div className="  small-caps">
                                         About
                                     </div>}
                                 text2={
@@ -42,7 +42,7 @@ function NavigationMenu(props: any) {
                         <Link href="/Projects">
                             <SlideTextLarge
                                 text1={
-                                    <div className=" text-white small-caps">
+                                    <div className="  small-caps">
                                         Projects
                                     </div>}
                                 text2={
@@ -55,7 +55,7 @@ function NavigationMenu(props: any) {
                         <Link href="/Blogs">
                             <SlideTextLarge
                                 text1={
-                                    <div className="text-white small-caps">
+                                    <div className=" small-caps">
                                         Blogs
                                     </div>}
                                 text2={
@@ -69,7 +69,7 @@ function NavigationMenu(props: any) {
                 </div>
                 <div className="flex-grow"></div>
             </div>
-            <div className="text-white w-full px-8 pb-4 text-xs flex justify-between">
+            <div className=" w-full px-8 pb-4 text-xs flex justify-between">
                 <div className="py-2">
                     <b>Dylan Borchert</b> © {new Date().getFullYear()}.
                 </div>
