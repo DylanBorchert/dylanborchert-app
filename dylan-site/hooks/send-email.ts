@@ -52,7 +52,7 @@ export async function sendEmail(formData: FormData) {
 		});
 
 	try {
-		await sendMailPromise();
+		// await sendMailPromise();
 		return { message: "Email sent" };
 	} catch (err) {
 		return { error: err };
