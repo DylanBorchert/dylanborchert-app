@@ -25,7 +25,7 @@ export default function About({ content }: any) {
                                 <p>My Resume</p>
                             </div>
                         </a>
-                        <Link href="/contact">
+                        <Link href="/Contact">
                             <div className="p-2 bg-white/10 px-5 py-2 hover:bg-primary-1 hover:text-black text-center rounded-full text-sm sm:mx-0 mt-2 mx-auto transition duration-400 ease-in-out">
                                 <p>Contact Me</p>
                             </div>

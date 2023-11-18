@@ -19,7 +19,7 @@ const DotParticals = (props) => {
 
     return (
         <Particles
-            className="-z-10 absolute w-full h-full"
+            className="-z-10 absolute w-full min-h-[calc(100dvh-48px)]"
             id="tsparticles"
             init={particlesInit}
             loaded={particlesLoaded}

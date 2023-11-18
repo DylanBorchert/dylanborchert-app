@@ -13,6 +13,64 @@ html {
     margin-top: 48px !important;
 }
 
+/*
+==========================================================================
+    CoolInput Styles
+==========================================================================
+*/
+
+  .coolinput label.text {
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-weight: 700;
+    position: relative;
+    top: 0.5rem;
+    margin: 0 0 0 7px;
+    padding: 0 3px;
+    background: var(--background-color);
+    width: fit-content;
+  }
+  
+  .coolinput input[type=text].input {
+    padding: 11px 10px;
+    font-size: 0.75rem;
+    border: 2px var(--primary) solid;
+    border-radius: 5px;
+    background: var(--background-color);
+  }
+  
+  .coolinput input[type=text].input:focus {
+    outline: none;
+  }
+
+  .coolinput textarea.input {
+    padding: 11px 10px;
+    font-size: 0.75rem;
+    border: 2px var(--primary) solid;
+    border-radius: 5px;
+    background: var(--background-color);
+  }
+  
+  .coolinput textarea.input:focus {
+    outline: none;
+  }
+
+/*
+==========================================================================
+    Honeypot Styles
+==========================================================================
+*/
+
+.lkjkljf{
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+    z-index: -1;
+}
+
 
 /* 
 ==========================================================================

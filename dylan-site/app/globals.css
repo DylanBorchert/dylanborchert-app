@@ -63,6 +63,7 @@ html, body {
   :root {
     --container-size: 1060px;
     --background-color: #09090b;
+    --primary: #0292F2;
   }
 
 }
