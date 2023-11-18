@@ -10,16 +10,18 @@ export default function Contact() {
     const {
         register,
         handleSubmit,
-        reset,
-        formState: { errors },
+        reset
     } = useForm<FormData>();
 
     const formRef = useRef<HTMLFormElement>(null);
 
     const onSubmit: SubmitHandler<FormData> = (data: FormData) => {
-        formRef.current?.reset();
         reset();
-        sendEmail(data);
+        sendEmail(data).then((res) => {
+            alert(res?.message);
+        }).catch((err) => {
+            console.log(err);
+        })
     }
 
 
