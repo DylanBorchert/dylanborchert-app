@@ -8,6 +8,7 @@ import remarkToc from "remark-toc";
 import rehypeSlug from "rehype-slug";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import Image from "next/image";
 
 export default function ContentProcessorClient({ content, allContent }: any) {
 
@@ -111,6 +112,16 @@ export default function ContentProcessorClient({ content, allContent }: any) {
                 <Showcase />
               </div>
             )
+          case 'general.single-image':
+            return (
+              <div key={index} className='max-w-[1060px] mx-auto px-5 py-5'>
+                <h1 className="font-bold text-xl my-3 max-w-[1060px] mx-auto">
+                  {item.title}
+                </h1>
+                <Image src={`https://strapi.phantommedia.online${item.image.data.attributes.url}`} width={500} height={500} alt='' key={index} className='h-auto w-auto max-h-[50dvh] px-5' />
+              </div>
+            )
+            break;
           default:
             console.warn("Unknown component type: " + item["__component"])
             console.log(item)
