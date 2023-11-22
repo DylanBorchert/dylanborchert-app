@@ -36,8 +36,8 @@ export default function ImageView({ item, index }: any) {
                 <svg xmlns="http://www.w3.org/2000/svg" className="absolute top-5 left-5 w-10 h-10 z-50 cursor-pointer" onClick={handleClose} viewBox="0 0 512 512">
                     <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32" d="M368 368L144 144M368 144L144 368" />
                 </svg>
-                <div className="h-[100dvh] w-full flex justify-center">
-                    <Image src={`https://strapi.phantommedia.online${item.image.data.attributes.url}`} width={1000} height={1000} alt='' key={index} className='object-contain mx-auto' />
+                <div className="h-[100dvh] w-full flex flex-col align-middle justify-center">
+                    <Image src={`https://strapi.phantommedia.online${item.image.data.attributes.url}`} width={1000} height={1000} alt='' key={index} className='object-contain mx-auto max-h-[100dvh]' />
                 </div>
             </div>}
         </div>
