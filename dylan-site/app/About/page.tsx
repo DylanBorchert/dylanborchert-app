@@ -8,14 +8,10 @@ export default async function About() {
 
     const { data, error } = await Strapi.getAboutPage();
 
-    if (error) {
-        console.error(error);
-    }
-
     return (
         <div className="">
             <GeometricGradient />
-            {data ? <AboutClient content={data as any} /> : <></>}
+            {data ? <AboutClient error={error} content={data as any} /> : <></>}
         </div>
     )
 }

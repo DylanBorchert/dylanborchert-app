@@ -2,7 +2,11 @@
 import Typewriter from 'typewriter-effect';
 import ContentProcessorClient from "@/components/ContentProcessorClient"
 
-export default function Home({ content }: any) {
+export default function Home({ content, error }: any) {
+
+    if (error) {
+        console.error(error)
+    }
 
     const getTags = () => {
         //shuffle tags
