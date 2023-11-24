@@ -4,8 +4,7 @@ const fetchData = async (url: string, params: any) => {
 	try {
 		const queryParams = new URLSearchParams(params.params).toString();
 		const fullUrl = `${url}?${queryParams}`;
-
-		const res = await fetch(fullUrl, {
+		const headers = {
 			next: {
 				revalidate: 60, // 1 minute
 			},
@@ -14,10 +13,12 @@ const fetchData = async (url: string, params: any) => {
 				Authorization: `Bearer ${process.env.STRAPI_KEY}`,
 				"Content-Type": "application/json",
 			},
-		});
+		};
+
+		const res = await fetch(fullUrl, headers);
 
 		if (!res.ok) {
-			return { data: undefined, error: "Network response was not ok" };
+			return { data: undefined, error: "Error with Network" };
 		}
 
 		const response = await res.json();

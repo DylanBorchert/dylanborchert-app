@@ -2,8 +2,8 @@
 import DotParticles from '@/components/animated-components/DotParticals.jsx'
 import HomeClient from '@/components/Home/HomeClient';
 import NavBar from '@/components/NavBar';
+import ToastError from '@/components/ToastError';
 import { getHomePage } from '@/hooks/Strapi'
-import { revalidatePath } from 'next/cache'
 
 
 export default async function Home() {
@@ -13,6 +13,7 @@ export default async function Home() {
   return (
     <main className=''>
       <DotParticles />
+      <ToastError error={error} />
       {data ? <HomeClient content={data as any} /> : <></>}
     </main>
   )

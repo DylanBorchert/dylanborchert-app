@@ -1,6 +1,7 @@
 "use server";
 
 import BlogsClient from "@/components/Blogs/BlogsClient";
+import ToastError from "@/components/ToastError";
 import { getBlogPage, getAllBlogs } from "@/hooks/Strapi";
 
 export default async function Blogs() {
@@ -10,6 +11,8 @@ export default async function Blogs() {
 
     return (
         <div>
+            <ToastError error={error} />
+            <ToastError error={allBlogsError} />
             {data ? <BlogsClient content={data as any} allBlogs={{ blogs: { data: allBlogs } }} /> : <></>}
         </div>
     )
