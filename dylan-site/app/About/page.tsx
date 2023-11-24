@@ -8,6 +8,10 @@ export default async function About() {
 
     const { data, error } = await Strapi.getAboutPage();
 
+    if (error) {
+        console.error(error);
+    }
+
     return (
         <div className="">
             <GeometricGradient />

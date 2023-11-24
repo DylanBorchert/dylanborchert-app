@@ -8,6 +8,10 @@ export default async function Home() {
 
   const { data, error } = await Strapi.getHomePage();
 
+  if (error) {
+    console.error(error);
+  }
+
   return (
     <main className=''>
       <DotParticles />
