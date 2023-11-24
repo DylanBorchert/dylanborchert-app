@@ -9,8 +9,15 @@ import rehypeSlug from "rehype-slug";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import Image from "next/image";
+import ImageView from './ImageView';
 
 export default function ContentProcessorClient({ content, allContent }: any) {
+
+  const handleImageView = (item: any, index: number) => {
+    return (
+      <ImageView item={item} index={index} />
+    )
+  }
 
   const handleListOrCarousel = (item: any) => {
     if (item.style === 'list') {
@@ -25,7 +32,8 @@ export default function ContentProcessorClient({ content, allContent }: any) {
   }
 
 
-  const MarkdownHelper = (item: any, index: any) => {
+
+  const MarkdownHelper = (item: any, index: number) => {
     return (
       <ReactMarkdown
         key={index}
@@ -114,12 +122,7 @@ export default function ContentProcessorClient({ content, allContent }: any) {
             )
           case 'general.single-image':
             return (
-              <div key={index} className='max-w-[1060px] mx-auto px-5 py-5'>
-                <h1 className="font-bold text-xl my-3 max-w-[1060px] mx-auto">
-                  {item.title}
-                </h1>
-                <Image src={`https://strapi.phantommedia.online${item.image.data.attributes.url}`} width={500} height={500} alt='' key={index} className='h-auto w-auto max-h-[50dvh] px-5' />
-              </div>
+              handleImageView(item as any, index as number)
             )
             break;
           default:
