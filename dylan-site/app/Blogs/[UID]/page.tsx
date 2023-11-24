@@ -1,13 +1,13 @@
 "use server";
-import Strapi from '@/hooks/Strapi'
+import { getBlog } from '@/hooks/Strapi'
 import BlogClient from "@/components/Blogs/BlogClient";
 
 export default async function Page({ params }: { params: { UID: string } }) {
-    const { data, error } = await Strapi.getBlog(params.UID);
+    const { data, error } = await getBlog(params.UID);
 
     return (
         <div>
-            {data ? <BlogClient error={error} content={data[0].attributes as any} /> : <></>}
+            {data ? <BlogClient content={data[0].attributes as any} /> : <></>}
         </div>
     )
 }

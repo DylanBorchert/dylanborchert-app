@@ -2,16 +2,18 @@
 import DotParticles from '@/components/animated-components/DotParticals.jsx'
 import HomeClient from '@/components/Home/HomeClient';
 import NavBar from '@/components/NavBar';
-import Strapi from '@/hooks/Strapi'
+import { getHomePage } from '@/hooks/Strapi'
+import { revalidatePath } from 'next/cache'
+
 
 export default async function Home() {
 
-  const { data, error } = await Strapi.getHomePage();
+  const { data, error } = await getHomePage();
 
   return (
     <main className=''>
       <DotParticles />
-      {data ? <HomeClient error={error} content={data as any} /> : <></>}
+      {data ? <HomeClient content={data as any} /> : <></>}
     </main>
   )
 }

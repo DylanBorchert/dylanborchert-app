@@ -1,16 +1,16 @@
 "use server";
 
 import ProjectsClient from "@/components/Projects/ProjectsClient";
-import Strapi from "@/hooks/Strapi";
+import { getAllProjects, getProjectPage } from "@/hooks/Strapi";
 
 export default async function Projects() {
 
-    const { data, error } = await Strapi.getProjectPage();
-    const { data: allProjects, error: allProjectsError } = await Strapi.getAllProjects();
+    const { data, error } = await getProjectPage();
+    const { data: allProjects, error: allProjectsError } = await getAllProjects();
 
     return (
         <div>
-            {data ? <ProjectsClient error={error} content={data as any} allProjects={{ projects: { data: allProjects } }} /> : <></>}
+            {data ? <ProjectsClient content={data as any} allProjects={{ projects: { data: allProjects } }} /> : <></>}
         </div>
     )
 }

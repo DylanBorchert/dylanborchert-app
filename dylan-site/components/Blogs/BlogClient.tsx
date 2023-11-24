@@ -1,11 +1,7 @@
 "use client";
 import ContentProcessorClient from "../ContentProcessorClient";
 
-export default function BlogClient({ content, error }: any) {
-
-    if (error) {
-        console.error(error)
-    }
+export default function BlogClient({ content }: any) {
 
     return (
         <ContentProcessorClient content={content.content} />

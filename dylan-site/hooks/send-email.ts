@@ -12,16 +12,23 @@ export type FormData = {
 };
 
 export async function sendEmail(formData: FormData) {
-	if (formData.name || formData.email || formData.message) {
-		await new Promise((resolve) => setTimeout(resolve, 1000)); // simulate delay
-		return { message: "Email sent ;)" };
+	if (process.env.ENABLE_EMAIL === "false") {
+		return { message: "Email under maintance" };
 	}
 
-	const {
-		emaillkjkl: email,
-		nameksljf: name,
-		messagelkjkl: message,
-	} = formData;
+	if (formData.name || formData.email || formData.message) {
+		if (process.env.SEND_SPAM === "false") {
+			await new Promise((resolve) => setTimeout(resolve, 1000)); // simulate delay
+			return { message: "Email sent ;)" };
+		}
+		var { name, email, message } = formData;
+	} else {
+		var {
+			emaillkjkl: email,
+			nameksljf: name,
+			messagelkjkl: message,
+		} = formData;
+	}
 
 	const transport = nodemailer.createTransport({
 		service: "gmail",

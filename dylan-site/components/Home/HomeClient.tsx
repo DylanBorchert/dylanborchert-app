@@ -1,12 +1,9 @@
 "use client";
 import Typewriter from 'typewriter-effect';
 import ContentProcessorClient from "@/components/ContentProcessorClient"
+import { useEffect, useState } from "react";
 
-export default function Home({ content, error }: any) {
-
-    if (error) {
-        console.error(error)
-    }
+export default function Home({ content }: any) {
 
     const getTags = () => {
         //shuffle tags
@@ -21,6 +18,7 @@ export default function Home({ content, error }: any) {
         }
         return contentTags
     }
+
 
     return (
         <div className="home-gradient min-h-[calc(100dvh-3rem)]">
@@ -48,4 +46,6 @@ export default function Home({ content, error }: any) {
             <ContentProcessorClient content={content.content} />
         </div>
     )
+
 }
+

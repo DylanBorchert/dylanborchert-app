@@ -2,16 +2,16 @@
 
 import AboutClient from "@/components/About/AboutClient";
 import GeometricGradient from "@/components/animated-components/GeometricGradient";
-import Strapi from '@/hooks/Strapi'
+import { getAboutPage } from '@/hooks/Strapi'
 
 export default async function About() {
 
-    const { data, error } = await Strapi.getAboutPage();
+    const { data, error } = await getAboutPage();
 
     return (
         <div className="">
             <GeometricGradient />
-            {data ? <AboutClient error={error} content={data as any} /> : <></>}
+            {data ? <AboutClient content={data as any} /> : <></>}
         </div>
     )
 }

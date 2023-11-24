@@ -1,26 +1,38 @@
-import axios from "axios";
+"use server";
 
-const fetchData = async (url: String, params: any) => {
-	const axiosConfig = axios.create({
-		headers: {
-			Authorization: `bearer ${process.env.STRAPI_KEY}`,
-		},
-	});
+const fetchData = async (url: string, params: any) => {
 	try {
-		const response = await axiosConfig.get(url as string, params as any);
-		if (response.data) {
-			if (response.data.data.length > 0) {
-				return { data: response.data.data, error: null }; // will catch with all and posts
-			} else if (response.data.data.attributes) {
-				return { data: response.data.data.attributes, error: null };
-			} else {
-				return { data: undefined, error: "No data found" };
-			}
-		} else {
-			return { data: undefined, error: "No data found" };
+		const queryParams = new URLSearchParams(params.params).toString();
+		const fullUrl = `${url}?${queryParams}`;
+
+		const res = await fetch(fullUrl, {
+			next: {
+				revalidate: 60, // 1 minute
+			},
+			method: "GET",
+			headers: {
+				Authorization: `Bearer ${process.env.STRAPI_KEY}`,
+				"Content-Type": "application/json",
+			},
+		});
+
+		if (!res.ok) {
+			return { data: undefined, error: "Network response was not ok" };
 		}
+
+		const response = await res.json();
+
+		if (response && response.data) {
+			if (response.data.length > 0) {
+				return { data: response.data, error: null };
+			} else if (response.data.attributes) {
+				return { data: response.data.attributes, error: null };
+			}
+		}
+
+		return { data: undefined, error: "No data found" };
 	} catch (error) {
-		console.log("error loading data:", error);
+		console.error("error", error);
 		return { data: undefined, error };
 	}
 };
@@ -34,7 +46,7 @@ export const getHomePage = async () => {
 		},
 	};
 
-	return await fetchData(url as String, params as any);
+	return await fetchData(url as string, params as any);
 };
 
 export const getAboutPage = async () => {
@@ -60,7 +72,7 @@ export const getProjectPage = async () => {
 		},
 	};
 
-	return await fetchData(url as String, params as any);
+	return await fetchData(url as string, params as any);
 };
 
 export const getBlogPage = async () => {
@@ -72,7 +84,7 @@ export const getBlogPage = async () => {
 		},
 	};
 
-	return await fetchData(url as String, params as any);
+	return await fetchData(url as string, params as any);
 };
 
 export const getAllProjects = async () => {
@@ -84,7 +96,7 @@ export const getAllProjects = async () => {
 		},
 	};
 
-	return await fetchData(url as String, params as any);
+	return await fetchData(url as string, params as any);
 };
 
 export const getAllBlogs = async () => {
@@ -96,7 +108,7 @@ export const getAllBlogs = async () => {
 		},
 	};
 
-	return await fetchData(url as String, params as any);
+	return await fetchData(url as string, params as any);
 };
 
 export const getProject = async (UID: String) => {
@@ -123,15 +135,4 @@ export const getBlog = async (UID: string) => {
 	};
 
 	return await fetchData(url, params);
-};
-
-export default {
-	getHomePage,
-	getAboutPage,
-	getProjectPage,
-	getBlogPage,
-	getAllProjects,
-	getAllBlogs,
-	getProject,
-	getBlog,
 };

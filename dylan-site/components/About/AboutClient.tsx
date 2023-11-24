@@ -6,11 +6,7 @@ import Image from "next/image";
 
 
 
-export default function About({ content, error }: any) {
-
-    if (error) {
-        console.error(error)
-    }
+export default function About({ content }: any) {
 
     return (
         <div className="min-h-[calc(100dvh-3rem)] -z-10">
