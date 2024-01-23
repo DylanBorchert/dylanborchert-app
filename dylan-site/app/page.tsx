@@ -5,8 +5,6 @@ import NavBar from '@/components/NavBar';
 import ToastError from '@/components/ToastError';
 import { getHomePage } from '@/hooks/Strapi'
 
-export const revalidate = 60;
-
 export default async function Home() {
 
 
