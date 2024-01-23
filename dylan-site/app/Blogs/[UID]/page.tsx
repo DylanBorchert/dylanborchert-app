@@ -1,4 +1,3 @@
-"use server";
 import { getBlog } from '@/hooks/Strapi'
 import BlogClient from "@/components/Blogs/BlogClient";
 import ToastError from '@/components/ToastError';
@@ -13,3 +12,5 @@ export default async function Page({ params }: { params: { UID: string } }) {
         </div>
     )
 }
+
+export const dynamic = "force-dynamic";

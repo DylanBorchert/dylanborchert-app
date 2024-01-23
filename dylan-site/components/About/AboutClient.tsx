@@ -5,8 +5,6 @@ import Link from 'next/link';
 import Image from "next/image";
 import { Suspense } from "react";
 
-export const revalidate = 60;
-
 
 export default function About({ content }: any) {
 

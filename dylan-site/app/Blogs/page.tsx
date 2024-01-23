@@ -1,5 +1,3 @@
-"use server";
-
 import BlogsClient from "@/components/Blogs/BlogsClient";
 import ToastError from "@/components/ToastError";
 import { getBlogPage, getAllBlogs } from "@/hooks/Strapi";
@@ -17,3 +15,5 @@ export default async function Blogs() {
         </div>
     )
 }
+
+export const dynamic = "force-dynamic";

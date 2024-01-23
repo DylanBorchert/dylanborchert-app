@@ -5,7 +5,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useRef, useEffect } from 'react';
 import classnames from 'classnames';
 
-export const revalidate = 60;
+
 
 
 export default function Contact() {

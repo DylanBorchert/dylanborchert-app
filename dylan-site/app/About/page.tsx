@@ -1,5 +1,3 @@
-"use server";
-
 import AboutClient from "@/components/About/AboutClient";
 import ToastError from "@/components/ToastError";
 import GeometricGradient from "@/components/animated-components/GeometricGradient";
@@ -17,3 +15,5 @@ export default async function About() {
         </div>
     )
 }
+
+export const dynamic = "force-dynamic";

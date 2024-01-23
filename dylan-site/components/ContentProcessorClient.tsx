@@ -11,7 +11,7 @@ import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import Image from "next/image";
 import ImageView from './ImageView';
 
-export const revalidate = 60;
+
 
 export default function ContentProcessorClient({ content, allContent }: any) {
 

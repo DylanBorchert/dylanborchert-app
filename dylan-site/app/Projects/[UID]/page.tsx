@@ -13,3 +13,5 @@ export default async function Page({ params }: { params: { UID: string } }) {
         </div>
     )
 }
+
+export const dynamic = "force-dynamic";

@@ -3,7 +3,7 @@ import Typewriter from 'typewriter-effect';
 import ContentProcessorClient from "@/components/ContentProcessorClient"
 import { useEffect, useState } from "react";
 
-export const revalidate = 60;
+
 
 export default function Home({ content }: any) {
 

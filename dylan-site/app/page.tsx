@@ -1,4 +1,3 @@
-"use server";
 import DotParticles from '@/components/animated-components/DotParticals.jsx'
 import HomeClient from '@/components/Home/HomeClient';
 import NavBar from '@/components/NavBar';
@@ -18,3 +17,5 @@ export default async function Home() {
     </main>
   )
 }
+
+export const dynamic = "force-dynamic";

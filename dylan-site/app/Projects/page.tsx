@@ -1,5 +1,3 @@
-"use server";
-
 import ProjectsClient from "@/components/Projects/ProjectsClient";
 import ToastError from "@/components/ToastError";
 import { getAllProjects, getProjectPage } from "@/hooks/Strapi";
@@ -17,3 +15,6 @@ export default async function Projects() {
         </div>
     )
 }
+
+
+export const dynamic = "force-dynamic";
