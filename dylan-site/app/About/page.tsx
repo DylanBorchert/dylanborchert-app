@@ -5,6 +5,8 @@ import ToastError from "@/components/ToastError";
 import GeometricGradient from "@/components/animated-components/GeometricGradient";
 import { getAboutPage } from '@/hooks/Strapi'
 
+export const revalidate = 60;
+
 export default async function About() {
 
     const { data, error } = await getAboutPage();

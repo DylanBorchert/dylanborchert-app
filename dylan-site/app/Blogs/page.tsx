@@ -4,6 +4,8 @@ import BlogsClient from "@/components/Blogs/BlogsClient";
 import ToastError from "@/components/ToastError";
 import { getBlogPage, getAllBlogs } from "@/hooks/Strapi";
 
+export const revalidate = 60;
+
 export default async function Blogs() {
 
     const { data, error } = await getBlogPage();
