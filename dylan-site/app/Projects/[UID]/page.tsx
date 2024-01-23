@@ -1,4 +1,3 @@
-"use server";
 import ProjectClient from '@/components/Projects/ProjectClient';
 import ToastError from '@/components/ToastError';
 import { getProject } from '@/hooks/Strapi'
