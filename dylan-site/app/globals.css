@@ -59,14 +59,34 @@ html, body {
   }
 }
 
+:root {
+  --container-size: 1060px;
+  --background-color: #09090b;
+  --forground-color: #f5f5f7;
+  --primary-1: #0292F2;
+  --secondary-1: #0261A1;
+  --primary-2: #FFBE0B;
+}
+
 @layer base {
   :root {
     --container-size: 1060px;
     --background-color: #09090b;
-    --primary: #0292F2;
+    --forground-color: #f5f5f7;
+    --primary-1: #0292F2;
+    --secondary-1: #0261A1;
     --primary-2: #FFBE0B;
   }
+}
 
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: #f5f5f7;
+    --forground-color: #09090b;
+    --primary-1: #0292F2;
+    --secondary-1: #0261A1;
+    --primary-2: #FFBE0B;
+  }
 }
 
 @layer utilities {
@@ -77,8 +97,6 @@ html, body {
     font-variant-caps: small-caps;
   }
 }
-
-
 
 .home-gradient {
   background-color: rgba(0,0,0,0);

@@ -2,8 +2,12 @@
 import { useEffect } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useTheme } from '@/context/ThemeContext'
 
 export default function ToastError({ error }: any) {
+
+    const { theme, toggleTheme } = useTheme()
+
 
     useEffect(() => {
         if (error) {
@@ -16,7 +20,7 @@ export default function ToastError({ error }: any) {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                theme: "dark",
+                theme: theme === 'dark' ? 'dark' : 'light',
             });
             console.log(error)
         }
@@ -33,7 +37,6 @@ export default function ToastError({ error }: any) {
             pauseOnFocusLoss
             draggable
             pauseOnHover
-            theme="dark"
         />
     )
 }

@@ -89,7 +89,7 @@ export default function Contact() {
                 <label className={classnames("text", { "missing": errors.messagelkjkl })} htmlFor="messagelkjkl">Message<sup className='text-primary-2'> *</sup></label>
                 <textarea className={classnames("input max-h-44 h-16 min-h-fit", { "missing": errors.messagelkjkl })} tabIndex={3} autoComplete="off" id="message" placeholder="message" {...register('messagelkjkl')} />
                 {errors.messagelkjkl && <p className='text-xs text-primary-2 para'>{errors.messagelkjkl.message}</p>}
-                <input type="submit" value="Send" tabIndex={4} className="w-fit mx-auto bg-white/10 px-5 py-2 rounded-full hover:bg-primary-1 hover:text-black mt-2 transition duration-400 ease-in-out hover:cursor-pointer" />
+                <input type="submit" value="Send" tabIndex={4} className="w-fit mx-auto dark:bg-white/10 bg-black/10 px-5 py-2 rounded-full hover:bg-primary-1 hover:text-black mt-2 transition duration-400 ease-in-out hover:cursor-pointer" />
             </form>
         </div>
 

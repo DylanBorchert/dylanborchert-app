@@ -83,7 +83,7 @@ const NavBar = (props: any) => {
                 </svg>
             </div>
 
-            <div className="bg-black bottom-shadow-nav">
+            <div className="bg-black bottom-shadow-nav text-white">
                 {isOpen ? <NavMenu isOpen={isOpen} /> : null}
                 <div className="flex align-middle justify-between z-50 max-w-[1060px] mx-auto px-5">
                     <div className="flex z-20">

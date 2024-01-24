@@ -75,7 +75,7 @@ function Carousel(props: any) {
                         >
 
                             <div className="slide-center relative flex flex-col w-[300px] group/item">
-                                <div className="bg-white/5 aspect-[4/2] rounded-xl shadow-xl hover:scale-[102%] hover:bg-white/10 transition-all duration-500 overflow-hidden flex-col flex justify-end">
+                                <div className="bg-foreground-color/5 aspect-[4/2] rounded-xl middleshadow hover:scale-[102%] hover:bg-foreground-color/10 transition-all duration-500 overflow-hidden flex-col flex justify-end bg-white dark:bg-black">
                                     <div className=" absolute top-0">
                                         <p className=" font-semibold px-5 pt-3">
                                             {slide.attributes.title}
@@ -91,7 +91,7 @@ function Carousel(props: any) {
                                             </p>
                                         </div>
                                         <Link href={`/${props.type}/${slide.attributes.UID}`}>
-                                            <div className=" bg-white/5 m-3 py-2 px-3 rounded-full text-sm group-hover/item:bg-primary-1 group-hover/item:text-black">
+                                            <div className="dark:bg-white/5 bg-black/5 m-3 py-2 px-3 rounded-full text-sm group-hover/item:bg-primary-1 group-hover/item:text-black">
                                                 Read
                                                 <svg xmlns="http://www.w3.org/2000/svg" strokeLinejoin="round" strokeWidth="1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="1em" height="1em" className="inline-flex shrink-0 text-xl ml-auto opacity-60"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                                             </div>
@@ -110,7 +110,7 @@ function Carousel(props: any) {
                     className={"disabled:opacity-0 scale-90 disabled: w-8 h-8 flex items-center justify-center translate-y-[-50%] hover:scale-110 hover:cursor-pointer transform transition-all duration-500"}
                 >
                     <Chevron className="w-3 h-3 text-primary-1" />
-                    <div className="w-8 h-8 absolute -z-10 bg-white rounded-full opacity-20"></div>
+                    <div className="w-8 h-8 absolute -z-10 bg-foreground-color rounded-full opacity-20"></div>
                     <span className="sr-only">Next slide</span>
                 </button>
             </div>
@@ -121,7 +121,7 @@ function Carousel(props: any) {
                     className={"disabled:opacity-0 scale-90 disabled: w-8 h-8 flex items-center justify-center translate-y-[-50%] hover:scale-110 hover:cursor-pointer transform transition-all duration-500"}
                 >
                     <Chevron className="rotate-180 w-3 h-3 text-primary-1" />
-                    <div className="w-8 h-8 absolute -z-10 bg-white rounded-full opacity-20"></div>
+                    <div className="w-8 h-8 absolute -z-10 bg-foreground-color rounded-full opacity-20"></div>
                     <span className="sr-only">Next slide</span>
                 </button>
             </div>

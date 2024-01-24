@@ -1,19 +1,27 @@
 "use client";
-import Carousel from '@/components/strapi-components/Carousel'
-import Showcase from '@/components/strapi-components/Showcase'
+import Carousel from '@/components/strapi-components/Carousel';
+import Showcase from '@/components/strapi-components/Showcase';
 import ListView from '@/components/strapi-components/ListView';
+import { IoIosCopy, IoIosCheckmarkCircleOutline } from 'react-icons/io';
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkToc from "remark-toc";
 import rehypeSlug from "rehype-slug";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import Image from "next/image";
+import { vscDarkPlus, vs } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import ImageView from './ImageView';
+import { useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import { useTheme } from '@/context/ThemeContext'
 
 
 
 export default function ContentProcessorClient({ content, allContent }: any) {
+
+  const { theme, toggleTheme } = useTheme()
+
+
 
   const handleImageView = (item: any, index: number) => {
     return (
@@ -33,6 +41,18 @@ export default function ContentProcessorClient({ content, allContent }: any) {
     }
   }
 
+  const notify = () => {
+    toast.success('Copied to clipboard!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: theme === 'dark' ? 'dark' : 'light',
+    });
+  }
 
 
   const MarkdownHelper = (item: any, index: number) => {
@@ -46,15 +66,25 @@ export default function ContentProcessorClient({ content, allContent }: any) {
           code: ({ node, inline, className, children, ...content }: any) => {
             const match = /language-(\w+)/.exec(className || "");
             return !inline && match ? (
-              <SyntaxHighlighter
-                {...content}
-                style={vscDarkPlus}
-                data-start-line={1}
-                language={match[1]}
-                PreTag="div"
-              >
-                {String(children).replace(/\n$/, "")}
-              </SyntaxHighlighter>
+              <div className='relative'>
+                <div className="text-foreground-color absolute right-0 group code-copy w-full flex justify-between py-2 border-b-[1px] border-black/15 dark:border-white/15 px-4">
+                  <span className="text-sm">{match[1]}</span>
+                  <CopyToClipboard text={String(children)} onCopy={() => notify()}>
+                    <IoIosCopy className="inline cursor-pointer h-5 w-5 ml-2 opacity-40 hover:opacity-100" />
+                  </CopyToClipboard>
+                </div>
+                <SyntaxHighlighter
+                  {...content}
+                  className={"rounded-md outline-none pt-20 code-block"}
+                  style={theme === "dark" ? vscDarkPlus : vs}
+                  data-start-line={1}
+                  language={match[1]}
+                  PreTag="div"
+                  codeTagProps={{ style: { fontFamily: 'inherit' } }}
+                >
+                  {String(children).replace(/\n$/, "")}
+                </SyntaxHighlighter>
+              </div>
             ) : (
               <code {...content} className={"inline " + className}>
                 {children}

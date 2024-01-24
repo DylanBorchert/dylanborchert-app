@@ -9,10 +9,10 @@ function ListView(props: any) {
                 <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {props.content.map((slide: any) => (
                         <li
-                            className="w-[300px] h-full bg-white/5 rounded-xl aspect-[4/2] hover:scale-[102%] hover:bg-white/10 transition-all duration-500 "
+                            className="w-[300px] h-full  rounded-xl aspect-[4/2] hover:scale-[102%] dark:bg-black bg-white transition-all duration-500 "
                             key={slide.id}
                         >
-                            <div className="h-full w-full flex flex-col p-3 justify-between group/item">
+                            <div className="h-full w-full flex flex-col p-3 justify-between group/item  middleshadow rounded-xl">
                                 <p className=" font-semibold text-lg line-clamp-3">
                                     {slide.attributes.title}
                                 </p>
@@ -24,7 +24,7 @@ function ListView(props: any) {
                                         </p>
                                     </div>
                                     <Link href={`/${props.type}/${slide.attributes.UID}`}>
-                                        <div className="bg-white/5 py-2 px-3 rounded-full text-sm group-hover/item:bg-primary-1 group-hover/item:text-black">
+                                        <div className="dark:bg-white/5 bg-black/5 py-2 px-3 rounded-full text-sm group-hover/item:bg-primary-1 group-hover/item:text-black">
                                             Read
                                             <svg xmlns="http://www.w3.org/2000/svg" strokeLinejoin="round" strokeWidth="1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="1em" height="1em" className="inline-flex shrink-0 text-xl ml-auto opacity-60"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                                         </div>

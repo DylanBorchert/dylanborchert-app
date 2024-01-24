@@ -17,3 +17,4 @@ export default async function About() {
 }
 
 export const dynamic = "force-dynamic";
+export const revalidate = 300;

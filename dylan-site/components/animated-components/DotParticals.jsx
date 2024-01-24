@@ -19,14 +19,14 @@ const DotParticals = (props) => {
 
     return (
         <Particles
-            className="-z-10 absolute w-full min-h-[calc(100dvh-48px)]"
+            className="-z-10 absolute w-full min-h-[calc(100dvh-48px)] bg-[#f0f0f0] dark:bg-background-color"
             id="tsparticles"
             init={particlesInit}
             loaded={particlesLoaded}
             options={{
                 background: {
                     color: {
-                        value: "#09090b",
+                        value: "",
                     },
                 },
                 fpsLimit: 120,

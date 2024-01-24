@@ -13,11 +13,11 @@ const config: Config = {
 			},
 			colors: {
 				/* CSS HEX */
-				"smoky-black": "#121212",
-				"background-black": "#09090b",
-				"primary-1": "#0292F2",
-				"secondary-1": "#0261A1",
-				"primary-2": "#FFBE0B",
+				"background-color": "var(--background-color)",
+				"foreground-color": "var(--forground-color)",
+				"primary-1": "var(--primary-1)",
+				"secondary-1": "var(--secondary-1)",
+				"primary-2": "var(--primary-2)",
 			},
 			keyframes: {
 				"fade-down-nav": {

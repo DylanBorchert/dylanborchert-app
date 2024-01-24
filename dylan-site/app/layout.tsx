@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Space_Grotesk } from 'next/font/google'
 import NavBar from '@/components/NavBar'
+import { ThemeProvider } from '@/context/ThemeContext'
+
 import './globals.css'
 import './component.css'
 
@@ -18,11 +20,13 @@ export default function RootLayout(
     children: React.ReactNode
   }) {
   return (
-    <html lang="en">
-      <body className={SpaceGrotesk.className + " text-white"}>
-        <NavBar />
-        {children}
-      </body>
-    </html>
+    <ThemeProvider>
+      <html lang="en">
+        <body className={SpaceGrotesk.className + " text-foreground-color"}>
+          <NavBar />
+          {children}
+        </body>
+      </html>
+    </ThemeProvider>
   )
 }
