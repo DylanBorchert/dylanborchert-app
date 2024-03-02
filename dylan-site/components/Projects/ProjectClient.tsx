@@ -20,7 +20,6 @@ export default function ProjectClient({ content }: any) {
                         {content.summary}
                     </p>
                 </div>
-
             </div>
             <ContentProcessorClient content={content.content} />
         </>
