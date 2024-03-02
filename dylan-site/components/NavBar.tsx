@@ -7,16 +7,33 @@ import SlideText from "@/components/animated-components/SlideText";
 import NavMenu from "./NavMenu";
 import classNames from "classnames";
 import Link from 'next/link';
+import { useTheme } from "next-themes";
+
 
 const NavBar = (props: any) => {
     const pathname = usePathname()
-
     const [isOpen, setOpen] = useState(false)
     const [scrollWidth, setScrollWidth] = useState(0);
     const [scrollY, setScrollY] = useState(0);
-
     const { isScrollingUp, isScrollingDown } = useScrollDirection()
+    const { systemTheme, theme, setTheme } = useTheme();
+    const [logoTheme, setLogoTheme] = useState("");
 
+    const toggleTheme = () => {
+        const displayed_theme = /light|dark/.test(theme || "")
+            ? theme
+            : systemTheme;
+        setLogoTheme("");
+
+        if (displayed_theme === "light") {
+            setTheme("dark");
+            setLogoTheme("dark");
+        }
+        if (displayed_theme === "dark") {
+            setTheme("light");
+            setLogoTheme("light");
+        }
+    };
 
     function top() {
         const scrollOptions = {
@@ -38,7 +55,6 @@ const NavBar = (props: any) => {
 
 
     const getScrollState = useMemo(() => {
-
         if (scrollY == 0) return "none";
         if (isScrollingUp) {
             return "up";
@@ -128,6 +144,20 @@ const NavBar = (props: any) => {
                                 Blogs
                             </span>
                         </Link>
+                        <div className="flex flex-col justify-center">
+                            <svg
+                                onClick={toggleTheme}
+                                className={classNames("h-6 w-6 fill-current transition duration-150 ease-in-out hover:cursor-pointer hover:text-primary-1 ",
+                                    { "animate-forward-spin": logoTheme === "light" },
+                                    { "animate-reverse-spin": logoTheme === "dark" },
+                                    { "": logoTheme === "" }
+                                )}
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="1em" height="1em"
+                                viewBox="0 0 20 20">
+                                <path fill="currentColor" d="M10 3a7 7 0 1 1 0 14zm0-1a8 8 0 1 0 0 16a8 8 0 0 0 0-16"></path>
+                            </svg>
+                        </div>
                     </div>
                     <div className="h-[48px] leading-[48px] z-50 sm:hidden">
                         <Hamburger color={"#f1f1f1"} size={20} rounded toggled={isOpen} toggle={setOpen} />

@@ -25,9 +25,19 @@ const config: Config = {
 					"0%": { opacity: "0.5", top: "-20px" },
 					"100%": { opacity: "1", top: "0" },
 				},
+				"forward-spin": {
+					"0%": { transform: "rotate(0deg)" },
+					"100%": { transform: "rotate(360deg)" },
+				},
+				"reverse-spin": {
+					"0%": { transform: "rotate(0deg)" },
+					"100%": { transform: "rotate(-360deg)" },
+				},
 			},
 			animation: {
 				"fade-down-nav": "fade-down-nav 0.2s ease-in forwards",
+				"forward-spin": "forward-spin 0.3s linear 1",
+				"reverse-spin": "reverse-spin 0.3s linear 1",
 			},
 		},
 	},
