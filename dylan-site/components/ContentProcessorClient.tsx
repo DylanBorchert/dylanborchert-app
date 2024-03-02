@@ -21,9 +21,22 @@ export default function ContentProcessorClient({ content, allContent }: any) {
 
   const { systemTheme, theme, setTheme } = useTheme();
 
-  const themechange = addEventListener('themeChange', (e: any) => {
-    console.log('themeChange', e)
-  })
+  // Use useEffect to add the event listener
+  useEffect(() => {
+    const handleThemeChange = (e: any) => {
+      console.log('themeChange', e);
+      // You can update the theme here if needed
+    };
+
+    // Add the event listener
+    window.addEventListener('themeChange', handleThemeChange);
+
+    // Cleanup function to remove the event listener
+    return () => {
+      window.removeEventListener('themeChange', handleThemeChange);
+    };
+  }, []);
+
 
   const updatedTheme = useMemo(() => {
     console.log('systemTheme', systemTheme)
@@ -33,7 +46,7 @@ export default function ContentProcessorClient({ content, allContent }: any) {
     } else {
       return theme;
     }
-  }, [themechange])
+  }, [systemTheme, theme])
 
   const handleImageView = (item: any, index: number) => {
     return (
