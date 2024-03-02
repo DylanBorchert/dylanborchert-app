@@ -56,7 +56,7 @@ export default function ContentProcessorClient({ content, allContent }: any) {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: theme === 'dark' ? 'dark' : 'light',
+      theme: updatedTheme === 'dark' ? 'dark' : 'light',
     });
   }
 

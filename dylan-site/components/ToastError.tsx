@@ -9,8 +9,6 @@ export default function ToastError({ error }: any) {
     const { systemTheme, theme, setTheme } = useTheme();
 
     const updatedTheme = useMemo(() => {
-        console.log('systemTheme', systemTheme)
-        console.log('theme', theme)
         if (theme === 'system') {
             return systemTheme;
         } else {
@@ -30,6 +28,7 @@ export default function ToastError({ error }: any) {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
+                theme: updatedTheme === 'dark' ? 'dark' : 'light',
             });
             console.log(error)
         }
@@ -42,7 +41,6 @@ export default function ToastError({ error }: any) {
             hideProgressBar={false}
             newestOnTop={false}
             closeOnClick
-            theme={updatedTheme === 'dark' ? 'dark' : 'light'}
             rtl={false}
             pauseOnFocusLoss
             draggable
