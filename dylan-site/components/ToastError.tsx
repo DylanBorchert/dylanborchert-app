@@ -1,5 +1,5 @@
 "use client"
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useTheme } from "next-themes";
@@ -7,6 +7,14 @@ import { useTheme } from "next-themes";
 export default function ToastError({ error }: any) {
 
     const { systemTheme, theme, setTheme } = useTheme();
+
+    const updatedTheme = useMemo(() => {
+        if (theme === 'system') {
+            return systemTheme;
+        } else {
+            return theme;
+        }
+    }, [theme])
 
 
     useEffect(() => {
@@ -20,7 +28,7 @@ export default function ToastError({ error }: any) {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                theme: theme === 'dark' ? 'dark' : 'light',
+                theme: updatedTheme === 'dark' ? 'dark' : 'light',
             });
             console.log(error)
         }

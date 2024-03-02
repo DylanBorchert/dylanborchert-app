@@ -21,6 +21,10 @@ export default function ContentProcessorClient({ content, allContent }: any) {
 
   const { systemTheme, theme, setTheme } = useTheme();
 
+  const themechange = addEventListener('themeChange', (e: any) => {
+    console.log('themeChange', e)
+  })
+
   const updatedTheme = useMemo(() => {
     console.log('systemTheme', systemTheme)
     console.log('theme', theme)
@@ -29,7 +33,7 @@ export default function ContentProcessorClient({ content, allContent }: any) {
     } else {
       return theme;
     }
-  }, [theme])
+  }, [themechange])
 
   const handleImageView = (item: any, index: number) => {
     return (
