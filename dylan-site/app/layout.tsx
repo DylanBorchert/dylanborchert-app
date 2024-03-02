@@ -22,7 +22,7 @@ export default function RootLayout(
   return (
     <ThemeProvider>
       <html lang="en">
-        <body className={SpaceGrotesk.className + " text-foreground-color"}>
+        <body className={SpaceGrotesk.className + " text-foreground-color bg-background-color"}>
           <NavBar />
           {children}
         </body>

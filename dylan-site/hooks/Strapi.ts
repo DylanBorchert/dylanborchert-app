@@ -106,6 +106,7 @@ export const getAllBlogs = async () => {
 		params: {
 			"populate[content][populate][projects][populate]": "cover, tags",
 			"populate[content][populate][blogs][populate]": "cover, tags",
+			"filters[restrictToProject][$eq]": 0,
 		},
 	};
 

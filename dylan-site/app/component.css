@@ -262,6 +262,16 @@ html {
 
 
 .markdown code.inline {
+    background-color: rgb(230, 230, 230);
+    padding: 1px 4px;
+    border-radius: 4px;
+    line-height: 1.5 !important;
+    font-size: 16px !important;
+    font-family: monospace !important;
+    outline: gray solid 1px;
+}
+
+.dark .markdown code.inline {
     background-color: rgb(30, 30, 30);
     padding: 1px 4px;
     border-radius: 4px;
@@ -271,17 +281,7 @@ html {
     outline: black solid 1px;
 }
 
-@media (prefers-color-scheme: light) {
-    .markdown code.inline {
-        background-color: rgb(230, 230, 230);
-        padding: 1px 4px;
-        border-radius: 4px;
-        line-height: 1.5 !important;
-        font-size: 16px !important;
-        font-family: monospace !important;
-        outline: gray solid 1px;
-    }
-}
+
 
 /* 
 ==========================================================================
@@ -345,8 +345,12 @@ html {
     min-height: 100vh;
     min-height: 100dvh;
     z-index: -1;
-    animation: theme 30s linear infinite;
+    animation: light-theme 30s linear infinite;
     position: fixed;
+}
+
+.dark .GeometricGradient {
+    animation: dark-theme 30s linear infinite;
 }
 
 .GeometricGradient:after,
@@ -364,13 +368,27 @@ html {
     animation: background 90s linear infinite;
 }
 
+.GeometricGradient:before {
+    background: rgba(230, 230, 230, 0.5);
+    right: 15vw;
+    animation-delay: -30s;
+    animation-direction: reverse;
+    filter: blur(1px);
+}
+
 .GeometricGradient:after {
+    left: 15vw;
+    background: rgba(200, 200, 200, 0.1);
+    filter: blur(1px);
+}
+
+.dark .GeometricGradient:after {
     left: 15vw;
     background: rgba(100, 100, 120, 0.1);
     filter: blur(1px);
 }
 
-.GeometricGradient:before {
+.dark .GeometricGradient:before {
     background: rgba(9, 9, 11, 0.5);
     right: 15vw;
     animation-delay: -30s;
@@ -378,7 +396,7 @@ html {
     filter: blur(1px);
 }
 
-@keyframes theme {
+@keyframes dark-theme {
     0% {
         background: #121212;
     }
@@ -408,51 +426,38 @@ html {
     }
 }
 
-@media (prefers-color-scheme: light) {
-    .GeometricGradient:after {
-        left: 15vw;
-        background: rgba(200, 200, 200, 0.1);
-        filter: blur(1px);
+@keyframes light-theme {
+    0% {
+        background: #f0f0f0;
     }
-    
-    .GeometricGradient:before {
-        background: rgba(230, 230, 230, 0.5);
-        right: 15vw;
-        animation-delay: -30s;
-        animation-direction: reverse;
-        filter: blur(1px);
+
+    16% {
+        background: #f7f7f7;
     }
-    
-    @keyframes theme {
-        0% {
-            background: #f0f0f0;
-        }
-    
-        16% {
-            background: #f7f7f7;
-        }
-    
-        33% {
-            background: #fafafa;
-        }
-    
-        50% {
-            background: #ffffff;
-        }
-    
-        66% {
-            background: #fafafa;
-        }
-    
-        83% {
-            background: #f7f7f7;
-        }
-    
-        100% {
-            background: #f0f0f0;
-        }
+
+    33% {
+        background: #fafafa;
+    }
+
+    50% {
+        background: #ffffff;
+    }
+
+    66% {
+        background: #fafafa;
+    }
+
+    83% {
+        background: #f7f7f7;
+    }
+
+    100% {
+        background: #f0f0f0;
     }
 }
+
+
+
 
 @keyframes background {
     0% {

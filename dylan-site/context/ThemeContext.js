@@ -10,8 +10,19 @@ export const ThemeProvider = ({ children }) => {
 	useEffect(() => {
 		const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
+		if (mediaQuery.matches) {
+			document.body.classList.add("dark");
+		} else {
+			document.body.classList.remove("dark");
+		}
+
 		const handleChange = (e) => {
 			setTheme(e.matches ? "dark" : "light");
+			if (mediaQuery.matches) {
+				document.body.classList.add("dark");
+			} else {
+				document.body.classList.remove("dark");
+			}
 		};
 
 		// Initial check

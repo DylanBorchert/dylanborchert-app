@@ -1,6 +1,7 @@
 import ProjectClient from '@/components/Projects/ProjectClient';
 import ToastError from '@/components/ToastError';
 import { getProject } from '@/hooks/Strapi'
+import { useEffect } from 'react';
 
 export default async function Page({ params }: { params: { UID: string } }) {
     const { data, error } = await getProject(params.UID)
@@ -14,4 +15,4 @@ export default async function Page({ params }: { params: { UID: string } }) {
 }
 
 export const dynamic = "force-dynamic";
-export const revalidate = 300;
+export const revalidate = 0;

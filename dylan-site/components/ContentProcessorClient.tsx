@@ -149,7 +149,7 @@ export default function ContentProcessorClient({ content, allContent }: any) {
                 <h1 className="font-bold text-xl my-3 max-w-[1060px] mx-auto pl-5">
                   {item["title"]}
                 </h1>
-                <Showcase />
+                <Showcase content={item} />
               </div>
             )
           case 'general.single-image':

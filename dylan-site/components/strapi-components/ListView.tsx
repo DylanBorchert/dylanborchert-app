@@ -9,7 +9,7 @@ function ListView(props: any) {
                 <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {props.content.map((slide: any) => (
                         <li
-                            className="w-[300px] h-full  rounded-xl aspect-[4/2] hover:scale-[102%] dark:bg-black bg-white transition-all duration-500 "
+                            className="w-[300px] h-full  rounded-xl aspect-[4/2] hover:scale-[102%] bg-white transition-all duration-500 dark:bg-white/5 dark:hover:bg-white/10"
                             key={slide.id}
                         >
                             <div className="h-full w-full flex flex-col p-3 justify-between group/item  middleshadow rounded-xl">
@@ -20,7 +20,7 @@ function ListView(props: any) {
                                 <div className="flex w-full justify-between">
                                     <div className="flex flex-col justify-center /">
                                         <p className="text-sm">
-                                            {new Date(slide.attributes.updatedAt).toLocaleString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })}
+                                            {new Date(slide.attributes.postDate || slide.attributes.updatedAt).toLocaleString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })}
                                         </p>
                                     </div>
                                     <Link href={`/${props.type}/${slide.attributes.UID}`}>

@@ -75,7 +75,7 @@ function Carousel(props: any) {
                         >
 
                             <div className="slide-center relative flex flex-col w-[300px] group/item">
-                                <div className="bg-foreground-color/5 aspect-[4/2] rounded-xl middleshadow hover:scale-[102%] hover:bg-foreground-color/10 transition-all duration-500 overflow-hidden flex-col flex justify-end bg-white dark:bg-black">
+                                <div className="bg-foreground-color/5 aspect-[4/2] rounded-xl middleshadow hover:scale-[102%] hover:bg-foreground-color/10 transition-all duration-500 overflow-hidden flex-col flex justify-end bg-white dark:bg-white/5 dark:hover:bg-white/10">
                                     <div className=" absolute top-0">
                                         <p className=" font-semibold px-5 pt-3">
                                             {slide.attributes.title}
@@ -87,7 +87,7 @@ function Carousel(props: any) {
                                     <div className="absolute bottom-0 flex w-full justify-between">
                                         <div className="flex flex-col justify-center /">
                                             <p className="text-sm h-5 px-5">
-                                                {new Date(slide.attributes.updatedAt).toLocaleString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })}
+                                                {new Date(slide.attributes.postDate || slide.attributes.updatedAt).toLocaleString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })}
                                             </p>
                                         </div>
                                         <Link href={`/${props.type}/${slide.attributes.UID}`}>
@@ -103,7 +103,7 @@ function Carousel(props: any) {
                     ))}
                 </ul>
             </div>
-            <div className="opacity-0 group-hover:opacity-100 duration-700 absolute translate-y-[-80px] pl-8 sm:block hidden">
+            <div className="duration-700 absolute translate-y-[-80px] pl-8 sm:block hidden">
                 <button
                     disabled={sliderPosition === 0}
                     onClick={() => goToPreviousSlide()}
@@ -114,7 +114,7 @@ function Carousel(props: any) {
                     <span className="sr-only">Next slide</span>
                 </button>
             </div>
-            <div className="opacity-0 group-hover:opacity-100 duration-700 absolute right-0 translate-y-[-80px] pr-8 sm:block hidden">
+            <div className="duration-700 absolute right-0 translate-y-[-80px] pr-8 sm:block hidden">
                 <button
                     disabled={scrolledToEndOfSlider || currentSlide === props.content.length || !hasScrollableArea}
                     onClick={() => goToNextSlide()}

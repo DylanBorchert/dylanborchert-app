@@ -4,7 +4,8 @@
 
 
 
-html, body {
+html,
+body {
   font-family: 'Space Grotesk', sans-serif;
 }
 
@@ -24,23 +25,23 @@ html, body {
   box-shadow: inset 0px 0px 1px 1px orange;
 }
 
-.debug{
+.debug {
   box-shadow: inset 0px 0px 1px 1px lime;
 }
 
-.debug *{
+.debug * {
   box-shadow: inset 0px 0px 1px 1px magenta;
 }
 
 .bottom-shadow-nav {
-  box-shadow: inset 0px -2px 1px -1px rgba(100,100,100,1);
+  box-shadow: inset 0px -2px 1px -1px rgba(100, 100, 100, 1);
 }
 
-.glow-shadow-md{
+.glow-shadow-md {
   box-shadow: 0px 0px 400px 400px rgba(2, 97, 161, 0.2);
 }
 
-.glow-shadow-sm{
+.glow-shadow-sm {
   box-shadow: 0px 0px 200px 100px rgba(2, 97, 161, 0.2);
 }
 
@@ -59,7 +60,22 @@ html, body {
   }
 }
 
-:root {
+@layer base {
+  :root {
+    --container-size: 1060px;
+  }
+}
+
+body {
+  --background-color: #f5f5f7;
+  --forground-color: #09090b;
+  --primary-1: #0292F2;
+  --secondary-1: #0261A1;
+  --primary-2: #FFBE0B;
+}
+
+
+body.dark {
   --container-size: 1060px;
   --background-color: #09090b;
   --forground-color: #f5f5f7;
@@ -68,41 +84,24 @@ html, body {
   --primary-2: #FFBE0B;
 }
 
-@layer base {
-  :root {
-    --container-size: 1060px;
-    --background-color: #09090b;
-    --forground-color: #f5f5f7;
-    --primary-1: #0292F2;
-    --secondary-1: #0261A1;
-    --primary-2: #FFBE0B;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --background-color: #f5f5f7;
-    --forground-color: #09090b;
-    --primary-1: #0292F2;
-    --secondary-1: #0261A1;
-    --primary-2: #FFBE0B;
-  }
-}
-
 @layer utilities {
   .slide-center {
     transform: translateX(calc(max(var(--container-size), 100vw) / 2 - calc(var(--container-size) / 2)))
   }
+
   .small-caps {
     font-variant-caps: small-caps;
   }
 }
 
 .home-gradient {
-  background-color: rgba(0,0,0,0);
-  background-image:         linear-gradient(top, rgba(0,0,0,0) 0%, var(--background-color) 50dvh); /* W3C */
-  background-image:    -moz-linear-gradient(top, rgba(0,0,0,0) 0%, var(--background-color) 50dvh); /* FF3.6+ */
-  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, var(--background-color) 50dvh); /* Chrome10+,Safari5.1+ */
+  background-color: rgba(0, 0, 0, 0);
+  background-image: linear-gradient(top, rgba(0, 0, 0, 0) 0%, var(--background-color) 50dvh);
+  /* W3C */
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, var(--background-color) 50dvh);
+  /* FF3.6+ */
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, var(--background-color) 50dvh);
+  /* Chrome10+,Safari5.1+ */
 }
 
 ::-webkit-scrollbar {
@@ -110,7 +109,7 @@ html, body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var( --background-color);
+  background: var(--background-color);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -123,7 +122,7 @@ html, body {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: grey var( --background-color);
+  scrollbar-color: grey var(--background-color);
 }
 
 *::-webkit-scrollbar {
@@ -131,13 +130,13 @@ html, body {
 }
 
 *::-webkit-scrollbar-track {
-  background: var( --background-color);
+  background: var(--background-color);
 }
 
 *::-webkit-scrollbar-thumb {
   background-color: grey;
   border-radius: 20px;
-  border: 3px solid var( --background-color);
+  border: 3px solid var(--background-color);
 }
 
 *::-webkit-scrollbar-thumb:hover {
