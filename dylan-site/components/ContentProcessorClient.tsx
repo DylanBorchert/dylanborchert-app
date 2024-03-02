@@ -22,8 +22,6 @@ export default function ContentProcessorClient({ content, allContent }: any) {
   const { systemTheme, theme, setTheme } = useTheme();
 
   const updatedTheme = useMemo(() => {
-    console.log('systemTheme', systemTheme)
-    console.log('theme', theme)
     if (theme === 'system') {
       return systemTheme;
     } else {

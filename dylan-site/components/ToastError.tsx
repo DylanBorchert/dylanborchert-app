@@ -30,7 +30,6 @@ export default function ToastError({ error }: any) {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                theme: updatedTheme === 'dark' ? 'dark' : 'light',
             });
             console.log(error)
         }
@@ -43,6 +42,7 @@ export default function ToastError({ error }: any) {
             hideProgressBar={false}
             newestOnTop={false}
             closeOnClick
+            theme={updatedTheme === 'dark' ? 'dark' : 'light'}
             rtl={false}
             pauseOnFocusLoss
             draggable
