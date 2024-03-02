@@ -13,13 +13,13 @@ import { vscDarkPlus, vs } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import ImageView from './ImageView';
 import { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import { useTheme } from '@/context/ThemeContext'
+import { useTheme } from "next-themes";
 
 
 
 export default function ContentProcessorClient({ content, allContent }: any) {
 
-  const { theme, toggleTheme } = useTheme()
+  const { systemTheme, theme, setTheme } = useTheme();
 
 
 

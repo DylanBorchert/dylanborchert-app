@@ -3,35 +3,63 @@
 @tailwind utilities;
 
 
-
 html,
 body {
   font-family: 'Space Grotesk', sans-serif;
 }
 
-.debug-m * {
-  box-shadow: inset 0px 0px 1px 1px gold;
+
+@layer base {
+  html {
+    --container-size: 1060px;
+    --background-color: #f5f5f7;
+    --foreground-color: #09090b;
+    --primary-1: #0292F2;
+    --secondary-1: #0261A1;
+    --primary-2: #FFBE0B;
+  }
+
+
+  .dark {
+    --background-color: #09090b;
+    --foreground-color: #f5f5f7;
+    --primary-1: #0292F2;
+    --secondary-1: #0261A1;
+    --primary-2: #FFBE0B;
+  }
 }
 
-.debug-s {
-  box-shadow: inset 0px 0px 1px 1px red;
+@layer base {
+  html {
+    @apply bg-background-color text-foreground-color;
+  }
 }
 
-.debug-s-1 {
-  box-shadow: inset 0px 0px 1px 1px turquoise;
-}
 
-.debug-s-2 {
-  box-shadow: inset 0px 0px 1px 1px orange;
-}
+  .debug-m * {
+    box-shadow: inset 0px 0px 1px 1px gold;
+  }
 
-.debug {
-  box-shadow: inset 0px 0px 1px 1px lime;
-}
+  .debug-s {
+    box-shadow: inset 0px 0px 1px 1px red;
+  }
 
-.debug * {
-  box-shadow: inset 0px 0px 1px 1px magenta;
-}
+  .debug-s-1 {
+    box-shadow: inset 0px 0px 1px 1px turquoise;
+  }
+
+  .debug-s-2 {
+    box-shadow: inset 0px 0px 1px 1px orange;
+  }
+
+  .debug {
+    box-shadow: inset 0px 0px 1px 1px lime;
+  }
+
+  .debug * {
+    box-shadow: inset 0px 0px 1px 1px magenta;
+  }
+
 
 .bottom-shadow-nav {
   box-shadow: inset 0px -2px 1px -1px rgba(100, 100, 100, 1);
@@ -46,43 +74,6 @@ body {
 }
 
 
-@layer base {
-  .font-outline-white {
-    -webkit-text-stroke: 0.75px white;
-  }
-
-  .font-outline-secondary-1 {
-    -webkit-text-stroke: 1px #0261A1;
-  }
-
-  .font-outline-primary-2 {
-    -webkit-text-stroke: 1px #FFBE0B;
-  }
-}
-
-@layer base {
-  :root {
-    --container-size: 1060px;
-  }
-}
-
-body {
-  --background-color: #f5f5f7;
-  --forground-color: #09090b;
-  --primary-1: #0292F2;
-  --secondary-1: #0261A1;
-  --primary-2: #FFBE0B;
-}
-
-
-body.dark {
-  --container-size: 1060px;
-  --background-color: #09090b;
-  --forground-color: #f5f5f7;
-  --primary-1: #0292F2;
-  --secondary-1: #0261A1;
-  --primary-2: #FFBE0B;
-}
 
 @layer utilities {
   .slide-center {

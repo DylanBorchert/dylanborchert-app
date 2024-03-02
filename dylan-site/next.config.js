@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	images: {
-		domains: ["localhost", "strapi.phantommedia.online"],
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "strapi.phantommedia.online",
+				port: "",
+				pathname: "/uploads/*",
+			},
+		],
 	},
 };
 

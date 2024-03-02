@@ -2,11 +2,11 @@
 import { useEffect } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useTheme } from '@/context/ThemeContext'
+import { useTheme } from "next-themes";
 
 export default function ToastError({ error }: any) {
 
-    const { theme, toggleTheme } = useTheme()
+    const { systemTheme, theme, setTheme } = useTheme();
 
 
     useEffect(() => {
