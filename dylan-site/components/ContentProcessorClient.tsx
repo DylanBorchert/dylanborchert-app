@@ -11,7 +11,7 @@ import rehypeSlug from "rehype-slug";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus, vs } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import ImageView from './ImageView';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { useTheme } from "next-themes";
 
@@ -21,7 +21,15 @@ export default function ContentProcessorClient({ content, allContent }: any) {
 
   const { systemTheme, theme, setTheme } = useTheme();
 
+  useEffect(() => {
+    console.log('theme', theme)
+  }, [theme])
 
+
+  const updatedTheme = useMemo(() => {
+    console.log('theme', theme)
+    return theme;
+  }, [theme])
 
   const handleImageView = (item: any, index: number) => {
     return (
@@ -76,7 +84,7 @@ export default function ContentProcessorClient({ content, allContent }: any) {
                 <SyntaxHighlighter
                   {...content}
                   className={"rounded-md outline-none pt-20 code-block"}
-                  style={theme === "dark" ? vscDarkPlus : vs}
+                  style={updatedTheme === "dark" ? vscDarkPlus : vs}
                   data-start-line={1}
                   language={match[1]}
                   PreTag="div"
