@@ -21,14 +21,14 @@ export default function ContentProcessorClient({ content, allContent }: any) {
 
   const { systemTheme, theme, setTheme } = useTheme();
 
-  useEffect(() => {
-    console.log('theme', theme)
-  }, [theme])
-
-
   const updatedTheme = useMemo(() => {
+    console.log('systemTheme', systemTheme)
     console.log('theme', theme)
-    return theme;
+    if (theme === 'system') {
+      return systemTheme;
+    } else {
+      return theme;
+    }
   }, [theme])
 
   const handleImageView = (item: any, index: number) => {
