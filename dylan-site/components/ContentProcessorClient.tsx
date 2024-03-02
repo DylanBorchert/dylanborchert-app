@@ -21,23 +21,6 @@ export default function ContentProcessorClient({ content, allContent }: any) {
 
   const { systemTheme, theme, setTheme } = useTheme();
 
-  // Use useEffect to add the event listener
-  useEffect(() => {
-    const handleThemeChange = (e: any) => {
-      console.log('themeChange', e);
-      // You can update the theme here if needed
-    };
-
-    // Add the event listener
-    window.addEventListener('themeChange', handleThemeChange);
-
-    // Cleanup function to remove the event listener
-    return () => {
-      window.removeEventListener('themeChange', handleThemeChange);
-    };
-  }, []);
-
-
   const updatedTheme = useMemo(() => {
     console.log('systemTheme', systemTheme)
     console.log('theme', theme)
