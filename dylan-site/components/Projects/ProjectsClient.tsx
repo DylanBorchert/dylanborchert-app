@@ -2,7 +2,6 @@
 import ContentProcessorClient from "../ContentProcessorClient";
 
 
-
 export default function ProjectsClient({ content, allProjects }: any) {
 
     return (

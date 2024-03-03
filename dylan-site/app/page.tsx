@@ -3,6 +3,12 @@ import HomeClient from '@/components/Home/HomeClient';
 import NavBar from '@/components/NavBar';
 import ToastError from '@/components/ToastError';
 import { getHomePage } from '@/hooks/Strapi'
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'dylanborchert.ca',
+  description: 'My personal website'
+}
 
 export default async function Home() {
 

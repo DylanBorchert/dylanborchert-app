@@ -1,6 +1,12 @@
 import ProjectsClient from "@/components/Projects/ProjectsClient";
 import ToastError from "@/components/ToastError";
 import { getAllProjects, getProjectPage } from "@/hooks/Strapi";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: 'dylanborchert.ca - Projects',
+    description: 'My Projects'
+}
 
 export default async function Projects() {
 

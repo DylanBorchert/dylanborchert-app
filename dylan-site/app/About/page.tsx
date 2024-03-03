@@ -2,6 +2,12 @@ import AboutClient from "@/components/About/AboutClient";
 import ToastError from "@/components/ToastError";
 import GeometricGradient from "@/components/animated-components/GeometricGradient";
 import { getAboutPage } from '@/hooks/Strapi'
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: 'dylanborchert.ca - About',
+    description: 'About me'
+}
 
 export default async function About() {
 

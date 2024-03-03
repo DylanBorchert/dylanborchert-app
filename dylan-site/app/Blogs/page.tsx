@@ -1,6 +1,12 @@
 import BlogsClient from "@/components/Blogs/BlogsClient";
 import ToastError from "@/components/ToastError";
 import { getBlogPage, getAllBlogs } from "@/hooks/Strapi";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: 'dylanborchert.ca - Blogs',
+    description: 'My Blogs'
+}
 
 export default async function Blogs() {
 
