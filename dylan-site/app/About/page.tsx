@@ -6,7 +6,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: 'dylanborchert.ca - About',
-    description: 'About me'
+    description: 'About me',
+    robots: 'index, follow',
 }
 
 export default async function About() {

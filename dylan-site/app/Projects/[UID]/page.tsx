@@ -14,18 +14,19 @@ type Props = {
 
 export async function generateMetadata({ params, searchParams }: Props, parent: ResolvingMetadata): Promise<Metadata> {
 
-    if (!searchParams) {
+    const { data, error } = await getProject(params.UID)
+
+    if (searchParams && data) {
+        return {
+            title: data[0].attributes.title,
+            description: data[0].attributes.summary,
+            robots: 'index, follow',
+        }
+
+    } else {
         return {
             title: "Project",
             description: "A Project by Dylan Borchert"
-        }
-    } else {
-        const { data, error } = await getProject(params.UID)
-
-        return {
-            title: data[0].attributes.title,
-            description: data[0].attributes.summary
-
         }
     }
 }

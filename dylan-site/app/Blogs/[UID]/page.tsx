@@ -12,17 +12,19 @@ type Props = {
 
 export async function generateMetadata({ params, searchParams }: Props, parent: ResolvingMetadata): Promise<Metadata> {
 
-    if (!searchParams) {
-        return {
-            title: "Blog Post",
-            description: "A Blog by Dylan Borchert"
-        }
-    } else {
-        const { data, error } = await getBlog(params.UID)
+    const { data, error } = await getBlog(params.UID)
 
+    if (searchParams && data) {
         return {
             title: data[0].attributes.title,
-            description: data[0].attributes.summary
+            description: data[0].attributes.summary,
+            robots: 'index, follow',
+        }
+
+    } else {
+        return {
+            title: "Blog Post",
+            description: "A Blog by Dylan Borchert",
         }
     }
 }

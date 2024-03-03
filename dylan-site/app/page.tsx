@@ -4,10 +4,12 @@ import NavBar from '@/components/NavBar';
 import ToastError from '@/components/ToastError';
 import { getHomePage } from '@/hooks/Strapi'
 import { Metadata } from "next";
+import { NextSeo } from 'next-seo';
 
 export const metadata: Metadata = {
   title: 'dylanborchert.ca',
-  description: 'My personal website'
+  description: 'My personal website',
+  robots: 'index, follow',
 }
 
 export default async function Home() {
