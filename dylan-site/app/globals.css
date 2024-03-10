@@ -90,11 +90,11 @@ body {
 
 .home-gradient {
   background-color: rgba(0, 0, 0, 0);
-  background-image: linear-gradient(top, rgba(0, 0, 0, 0) 0%, var(--background-color) 50dvh);
+  background-image: linear-gradient(top, rgba(0, 0, 0, 0) 0%, var(--background-color) 75dvh);
   /* W3C */
-  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, var(--background-color) 50dvh);
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, var(--background-color) 75dvh);
   /* FF3.6+ */
-  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, var(--background-color) 50dvh);
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, var(--background-color) 75dvh);
   /* Chrome10+,Safari5.1+ */
 }
 

@@ -71,11 +71,11 @@ function Carousel(props: any) {
                     {props.content.map((slide: any) => (
                         <Link href={`/${props.type}/${slide.attributes.UID}`} key={slide.id}>
                             <li
-                                className="snap-start snap-always shrink-0  scroll-mx-5 ml-5 py-2"
+                                className="snap-start snap-always shrink-0  scroll-mx-5 ml-4 py-2"
                             >
 
                                 <div className="slide-center relative flex flex-col w-[300px] group/item">
-                                    <div className="bg-foreground-color/5 aspect-[4/2] rounded-xl middleshadow hover:scale-[102%] hover:bg-foreground-color/10 transition-all duration-500 overflow-hidden flex-col flex justify-end bg-white dark:bg-white/5 dark:hover:bg-white/10 p-3">
+                                    <div className="bg-foreground-color/5 aspect-[4/2] rounded-xl middleshadow hover:scale-[102%] hover:bg-foreground-color/10 transition-all duration-500 overflow-hidden flex-col flex justify-end bg-black/5 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10 p-3">
                                         <div className="flex align-middle justify-between">
                                             <p className=" font-semibold text-lg line-clamp-3 w-fit">
                                                 {slide.attributes.title}
