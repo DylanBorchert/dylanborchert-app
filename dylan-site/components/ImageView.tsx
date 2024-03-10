@@ -24,8 +24,8 @@ export default function ImageView({ item, index }: any) {
     }, [show])
 
     return (
-        <div key={index} className='max-w-[1060px] mx-auto px-5 py-5'>
-            <h1 className="font-bold text-xl my-3 max-w-[1060px] mx-auto">
+        <div key={index} className='max-w-[1290px] mx-auto px-5 py-5'>
+            <h1 className="font-bold text-xl my-3 max-w-[1290px] mx-auto">
                 {item.title}
             </h1>
             <div className='w-fit relative group'>

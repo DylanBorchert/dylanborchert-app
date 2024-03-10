@@ -1,4 +1,5 @@
 import DotParticles from '@/components/animated-components/DotParticals.jsx'
+import Footer from '@/components/Footer';
 import HomeClient from '@/components/Home/HomeClient';
 import NavBar from '@/components/NavBar';
 import ToastError from '@/components/ToastError';
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
   title: 'dylanborchert.ca',
   description: 'My personal website',
   robots: 'index, follow',
+
 }
 
 export default async function Home() {

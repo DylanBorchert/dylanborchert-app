@@ -69,37 +69,44 @@ function Carousel(props: any) {
                     className="flex h-[200px] pb-10 overflow-x-auto sm:snap-x sm:snap-mandatory group/arrows"
                 >
                     {props.content.map((slide: any) => (
-                        <li
-                            className="snap-start snap-always shrink-0  scroll-mx-5 ml-5 py-2"
-                            key={slide.id}
-                        >
+                        <Link href={`/${props.type}/${slide.attributes.UID}`}>
+                            <li
+                                className="snap-start snap-always shrink-0  scroll-mx-5 ml-5 py-2"
+                                key={slide.id}
+                            >
 
-                            <div className="slide-center relative flex flex-col w-[300px] group/item">
-                                <div className="bg-foreground-color/5 aspect-[4/2] rounded-xl middleshadow hover:scale-[102%] hover:bg-foreground-color/10 transition-all duration-500 overflow-hidden flex-col flex justify-end bg-white dark:bg-white/5 dark:hover:bg-white/10">
-                                    <div className=" absolute top-0">
-                                        <p className=" font-semibold px-5 pt-3">
-                                            {slide.attributes.title}
-                                        </p>
-                                        <p className=" text-xs px-5">
-                                            {slide.attributes.summary}
-                                        </p>
-                                    </div>
-                                    <div className="absolute bottom-0 flex w-full justify-between">
+                                <div className="slide-center relative flex flex-col w-[300px] group/item">
+                                    <div className="bg-foreground-color/5 aspect-[4/2] rounded-xl middleshadow hover:scale-[102%] hover:bg-foreground-color/10 transition-all duration-500 overflow-hidden flex-col flex justify-end bg-white dark:bg-white/5 dark:hover:bg-white/10 p-3">
+                                        <div className="flex align-middle justify-between">
+                                            <p className=" font-semibold text-lg line-clamp-3 w-fit">
+                                                {slide.attributes.title}
+                                            </p>
+                                            <svg
+                                                className="inline-flex text-xl opacity-60 mt-1 mr-2 group-hover/item:mr-0 transition-all duration-250 h-6 w-6"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                strokeLinejoin="round" strokeWidth="1.5"
+                                                fill="none" stroke="currentColor"
+                                                viewBox="0 0 24 24" width="1em" height="1em"
+                                            >
+                                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                                <polyline points="7 7 17 7 17 17"></polyline>
+                                            </svg>
+                                        </div>
                                         <div className="flex flex-col justify-center /">
-                                            <p className="text-sm h-5 px-5">
+                                            <p className="text-sm opacity-50">
                                                 {new Date(slide.attributes.postDate || slide.attributes.updatedAt).toLocaleString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })}
                                             </p>
                                         </div>
-                                        <Link href={`/${props.type}/${slide.attributes.UID}`}>
-                                            <div className="dark:bg-white/5 bg-black/5 m-3 py-2 px-3 rounded-full text-sm group-hover/item:bg-primary-1 group-hover/item:text-black">
-                                                Read
-                                                <svg xmlns="http://www.w3.org/2000/svg" strokeLinejoin="round" strokeWidth="1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="1em" height="1em" className="inline-flex shrink-0 text-xl ml-auto opacity-60"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                                            </div>
-                                        </Link>
+                                        <div className="flex-grow"></div>
+                                        <div className="flex w-full">
+                                            {slide.attributes.tags?.data.map((tag: any) => (
+                                                <p className="text-xs text-primary-1 outline outline-primary-1 outline-[1px] rounded-full px-2 py-1 mr-2 text-opacity-100 " key={tag.attributes.tag}>{tag.attributes.tag}</p>
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
+                        </Link>
                     ))}
                 </ul>
             </div>

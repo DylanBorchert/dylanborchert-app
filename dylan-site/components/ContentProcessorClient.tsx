@@ -2,6 +2,7 @@
 import Carousel from '@/components/strapi-components/Carousel';
 import Showcase from '@/components/strapi-components/Showcase';
 import ListView from '@/components/strapi-components/ListView';
+import SkillBubble from '@/components/strapi-components/SkillBubble';
 import { IoIosCopy, IoIosCheckmarkCircleOutline } from 'react-icons/io';
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import ReactMarkdown from "react-markdown";
@@ -65,7 +66,7 @@ export default function ContentProcessorClient({ content, allContent }: any) {
     return (
       <ReactMarkdown
         key={index}
-        className="markdown max-w-[1060px] mx-auto px-5 text-none"
+        className="markdown max-w-[1290px] mx-auto px-5 text-none"
         remarkPlugins={[remarkToc, remarkGfm]}
         rehypePlugins={[rehypeSlug]}
         components={{
@@ -121,7 +122,7 @@ export default function ContentProcessorClient({ content, allContent }: any) {
           case 'general.highlight-blogs':
             return (
               <div key={index}>
-                <h1 className="font-bold text-xl my-3 max-w-[1060px] mx-auto pl-5">
+                <h1 className="font-bold text-xl my-3 max-w-[1290px] mx-auto pl-5">
                   {item["title"]}
                 </h1>
                 {handleListOrCarousel(item)}
@@ -131,7 +132,7 @@ export default function ContentProcessorClient({ content, allContent }: any) {
             item.projects = allContent.projects
             return (
               <div key={index}>
-                <h1 className="font-bold text-xl my-3 max-w-[1060px] mx-auto pl-5">
+                <h1 className="font-bold text-xl my-3 max-w-[1290px] mx-auto pl-5">
                   {item["title"]}
                 </h1>
                 {handleListOrCarousel(item)}
@@ -141,7 +142,7 @@ export default function ContentProcessorClient({ content, allContent }: any) {
             item.blogs = allContent.blogs
             return (
               <div key={index}>
-                <h1 className="font-bold text-xl my-3 max-w-[1060px] mx-auto pl-5">
+                <h1 className="font-bold text-xl my-3 max-w-[1290px] mx-auto pl-5">
                   {item["title"]}
                 </h1>
                 {handleListOrCarousel(item)}
@@ -150,9 +151,10 @@ export default function ContentProcessorClient({ content, allContent }: any) {
           case 'general.markdown':
             return (MarkdownHelper(item, index))
           case 'general.showcase-project':
+          case 'general.showcase-blog':
             return (
               <div key={index}>
-                <h1 className="font-bold text-xl my-3 max-w-[1060px] mx-auto pl-5">
+                <h1 className="font-bold text-xl my-3 max-w-[1290px] mx-auto pl-5">
                   {item["title"]}
                 </h1>
                 <Showcase content={item} />
@@ -162,7 +164,15 @@ export default function ContentProcessorClient({ content, allContent }: any) {
             return (
               handleImageView(item as any, index as number)
             )
-            break;
+          // case 'general.skill-bubble':
+          //   return (
+          //     <div key={index}>
+          //       <h1 className="font-bold text-xl my-3 max-w-[1290px] mx-auto pl-5">
+          //         {item["title"]}
+          //       </h1>
+          //       <SkillBubble content={item} />
+          //     </div>
+          //   )
           default:
             console.warn("Unknown component type: " + item["__component"])
             console.log(item)

@@ -4,6 +4,7 @@ import { sendEmail, FormData } from '@/hooks/send-email';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useRef, useEffect } from 'react';
 import classnames from 'classnames';
+import Footer from '../Footer';
 
 
 
@@ -66,7 +67,8 @@ export default function Contact() {
 
 
     return (
-        <div className="px-5 max-w-[1060px] mx-auto min-h-[calc(100dvh-48px)] flex flex-col justify-center">
+        <div className="px-5 max-w-[1290px] mx-auto min-h-[calc(100dvh-48px)] flex flex-col justify-center">
+            <div className='flex-grow'></div>
             <p className="mx-auto font-semibold text-xl">Contact Me</p>
             <form className="flex flex-col coolinput sm:mx-auto sm:min-w-[50%] " onSubmit={handleSubmit(onSubmit)} ref={formRef}>
                 {/* H o n e y p o t */}
@@ -91,6 +93,8 @@ export default function Contact() {
                 {errors.messagelkjkl && <p className='text-xs text-primary-2 para'>{errors.messagelkjkl.message}</p>}
                 <input type="submit" value="Send" tabIndex={4} className="w-fit mx-auto dark:bg-white/10 bg-black/10 px-5 py-2 rounded-full hover:bg-primary-1 hover:text-black mt-2 transition duration-400 ease-in-out hover:cursor-pointer" />
             </form>
+            <div className='flex-grow'></div>
+            <Footer />
         </div>
 
     )

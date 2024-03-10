@@ -92,8 +92,7 @@ export const getAllProjects = async () => {
 	const url = `${process.env.STRAPI_HOST}/api/projects`;
 	const params = {
 		params: {
-			"populate[content][populate][projects][populate]": "cover, tags",
-			"populate[content][populate][blogs][populate]": "cover, tags",
+			"populate[tags]": "*",
 		},
 	};
 
@@ -104,8 +103,7 @@ export const getAllBlogs = async () => {
 	const url = `${process.env.STRAPI_HOST}/api/blogs`;
 	const params = {
 		params: {
-			"populate[content][populate][projects][populate]": "cover, tags",
-			"populate[content][populate][blogs][populate]": "cover, tags",
+			"populate[tags]": "*",
 			"filters[restrictToProject][$eq]": 0,
 		},
 	};
