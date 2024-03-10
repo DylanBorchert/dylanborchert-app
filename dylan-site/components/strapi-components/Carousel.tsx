@@ -69,10 +69,9 @@ function Carousel(props: any) {
                     className="flex h-[200px] pb-10 overflow-x-auto sm:snap-x sm:snap-mandatory group/arrows"
                 >
                     {props.content.map((slide: any) => (
-                        <Link href={`/${props.type}/${slide.attributes.UID}`}>
+                        <Link href={`/${props.type}/${slide.attributes.UID}`} key={slide.id}>
                             <li
                                 className="snap-start snap-always shrink-0  scroll-mx-5 ml-5 py-2"
-                                key={slide.id}
                             >
 
                                 <div className="slide-center relative flex flex-col w-[300px] group/item">

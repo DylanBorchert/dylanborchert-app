@@ -8,10 +8,9 @@ function ListView(props: any) {
             <div className="flex justify-start">
                 <ul className="flex flex-wrap gap-4">
                     {props.content.map((slide: any) => (
-                        <Link href={`/${props.type}/${slide.attributes.UID}`} >
+                        <Link href={`/${props.type}/${slide.attributes.UID}`} key={slide.id}>
                             <li
                                 className="w-[300px] h-full middleshadow rounded-xl aspect-[4/2] hover:scale-[102%] bg-white transition-all duration-500 dark:bg-white/5 dark:hover:bg-white/10 overflow-hidden"
-                                key={slide.id}
                             >
                                 <div className="h-full w-full flex flex-col p-3 justify-between group/item  rounded-xl">
                                     <div className="flex align-middle justify-between">

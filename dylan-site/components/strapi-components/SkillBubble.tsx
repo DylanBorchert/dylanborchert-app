@@ -110,7 +110,7 @@ export default function SkillBubble(content: any, chart: HighchartsReact.Props) 
                 }
             }, true, true)
         }
-    }, [systemTheme, theme])
+    }, [systemTheme, theme, updatedTheme])
 
 
 

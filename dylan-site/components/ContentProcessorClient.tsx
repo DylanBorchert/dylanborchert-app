@@ -12,7 +12,7 @@ import rehypeSlug from "rehype-slug";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus, vs } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import ImageView from './ImageView';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { useTheme } from "next-themes";
 
