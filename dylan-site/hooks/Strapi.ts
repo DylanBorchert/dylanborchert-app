@@ -92,8 +92,7 @@ export const getAllProjects = async () => {
 	const url = `${process.env.STRAPI_HOST}/api/projects`;
 	const params = {
 		params: {
-			"populate[content][populate][projects][populate]": "cover, tags",
-			"populate[content][populate][blogs][populate]": "cover, tags",
+			"populate[tags]": "*",
 		},
 	};
 
@@ -104,8 +103,7 @@ export const getAllBlogs = async () => {
 	const url = `${process.env.STRAPI_HOST}/api/blogs`;
 	const params = {
 		params: {
-			"populate[content][populate][projects][populate]": "cover, tags",
-			"populate[content][populate][blogs][populate]": "cover, tags",
+			"populate[tags]": "*",
 			"filters[restrictToProject][$eq]": 0,
 		},
 	};
@@ -118,8 +116,8 @@ export const getProject = async (UID: String) => {
 	const params = {
 		params: {
 			"filters[UID][$eq]": UID,
-			"populate[tags]": "*",
-			"populate[content][populate]": "*",
+			"populate[content][populate][blogs][populate]": "cover, tags",
+			"populate[content][populate][projects][populate]": "cover, tags",
 		},
 	};
 
@@ -131,8 +129,8 @@ export const getBlog = async (UID: string) => {
 	const params = {
 		params: {
 			"filters[UID][$eq]": UID,
-			"populate[tags]": "*",
-			"populate[content][populate]": "*",
+			"populate[content][populate][blogs][populate]": "cover, tags",
+			"populate[content][populate][projects][populate]": "cover, tags",
 		},
 	};
 

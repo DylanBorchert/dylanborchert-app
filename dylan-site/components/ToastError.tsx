@@ -32,7 +32,7 @@ export default function ToastError({ error }: any) {
             });
             console.log(error)
         }
-    }, [error])
+    }, [error, updatedTheme])
 
     return (
         <ToastContainer

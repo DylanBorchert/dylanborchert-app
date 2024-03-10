@@ -101,7 +101,7 @@ const NavBar = (props: any) => {
 
             <div className="bg-black bottom-shadow-nav text-white">
                 {isOpen ? <NavMenu isOpen={isOpen} /> : null}
-                <div className="flex align-middle justify-between z-50 max-w-[1060px] mx-auto px-5">
+                <div className="flex align-middle justify-between z-50 max-w-[1290px] mx-auto px-5">
                     <div className="flex z-20">
                         <div className="h-[2rem] leading-[48px] my-auto pt-1 ml-2">
                             <Link href="/">

@@ -2,6 +2,7 @@
 import Typewriter from 'typewriter-effect';
 import ContentProcessorClient from "@/components/ContentProcessorClient"
 import { useEffect, useState } from "react";
+import Footer from '../Footer';
 
 
 
@@ -23,16 +24,16 @@ export default function Home({ content }: any) {
 
 
     return (
-        <div className="home-gradient min-h-[calc(100dvh-3rem)]">
+        <div className="home-gradient min-h-[calc(100dvh-3rem)] flex flex-col">
 
-            <div className="max-w-[1060px] mx-auto pt-20 mb-12 pl-5">
+            <div className="max-w-[1290px] mx-auto pt-20 mb-12 pl-5 w-full">
                 <p className="text-lg">
                     {content.subTitle}
                 </p>
                 <h1 className="font-bold text-4xl my-5 bg-clip-text text-transparent bg-gradient-to-r from-primary-1 to-secondary-1 w-72">
                     {content.title}
                 </h1>
-                <div className="absolute w-[calc(100%-2.5rem)] max-w-[1060px] z-[-10] glow-shadow-md" />
+                <div className="absolute w-[calc(100%-2.5rem)] max-w-[1290px] z-[-10] glow-shadow-md" />
                 <div className="text-md h-6">
                     <Typewriter
                         options={{
@@ -46,6 +47,8 @@ export default function Home({ content }: any) {
                 </div>
             </div>
             <ContentProcessorClient content={content.content} />
+            <div className='flex-grow'></div>
+            <Footer />
         </div>
     )
 

@@ -7,6 +7,7 @@ const ThemeProvider = dynamic(() => import("@/context/ThemeProvider"), {
 
 import './globals.css'
 import './component.css'
+import Footer from '@/components/Footer';
 
 const SpaceGrotesk = Space_Grotesk({ subsets: ['latin'] })
 
