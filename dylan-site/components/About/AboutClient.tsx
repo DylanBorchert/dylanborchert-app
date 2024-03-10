@@ -15,14 +15,14 @@ export default function About({ content }: any) {
                 <div className="m-auto rounded-full bg-foreground-color glow-shadow-sm relative -z-[1]">
                     <Image src={`https://strapi.phantommedia.online${content.portrait.data?.attributes.url}`} width={500} height={500} alt="Portarit of Dylan Borchert" className="w-52 h-52 rounded-full" />
                 </div>
-                <div className="flex flex-col justify-center p-5 h-full sm:m-0">
+                <div className="flex flex-col justify-center p-5 sm:m-0">
                     <p className="text-lg pt-3">
                         Check my socials
                     </p>
                     <div className='max-w-[1290px]'>
                         <Socials />
                     </div>
-                    <div className="flex sm:gap-5 sm:justify-start justify-between">
+                    <div className="flex sm:gap-5 justify-start gap-5">
                         <a href={`https://strapi.phantommedia.online${content.resume.data?.attributes.url}`} target="_blank">
                             <div className="p-2 dark:bg-white/10 bg-black/10 dark:hover:bg-primary-1   px-5 py-2 hover:bg-primary-1 hover:text-black text-center rounded-full text-sm sm:mx-0 mt-2 mx-auto transition duration-400 ease-in-out">
                                 <p>My Resume</p>

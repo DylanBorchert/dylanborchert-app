@@ -15,7 +15,7 @@ const Footer = (props: any) => {
 
 
     return (
-        <div className="w-full h-fit relative text-gray-400">
+        <div className="w-full h-fit relative text-gray-400 pb-4">
             <div className="h-full flex flex-col justify-center">
                 <div className="flex-col align-middle justify-center mx-auto">
                     <div className="scale-75 text-gray-400">

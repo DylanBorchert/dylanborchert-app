@@ -80,16 +80,21 @@ function Carousel(props: any) {
                                             <p className=" font-semibold text-lg line-clamp-3 w-fit">
                                                 {slide.attributes.title}
                                             </p>
-                                            <svg
-                                                className="inline-flex text-xl opacity-60 mt-1 mr-2 group-hover/item:mr-0 transition-all duration-250 h-6 w-6"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                strokeLinejoin="round" strokeWidth="1.5"
-                                                fill="none" stroke="currentColor"
-                                                viewBox="0 0 24 24" width="1em" height="1em"
-                                            >
-                                                <line x1="7" y1="17" x2="17" y2="7"></line>
-                                                <polyline points="7 7 17 7 17 17"></polyline>
-                                            </svg>
+                                            <div className="relative">
+                                                <svg
+                                                    className="inline-flex text-xl opacity-60 mt-1 mr-2 group-hover/item:mr-0 transition-all duration-250 h-6 w-6"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    strokeLinejoin="round" strokeWidth="1.5"
+                                                    fill="none" stroke="currentColor"
+                                                    viewBox="0 0 24 24" width="1em" height="1em"
+                                                >
+                                                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                                                    <polyline points="7 7 17 7 17 17"></polyline>
+                                                </svg>
+                                                <p className="text-xs absolute right-0 top-0 group-hover/item:top-7 transition-all duration-250 opacity-0 group-hover/item:opacity-50 scale-50 group-hover/item:scale-100">
+                                                    Read
+                                                </p>
+                                            </div>
                                         </div>
                                         <div className="flex flex-col justify-center /">
                                             <p className="text-sm opacity-50">
