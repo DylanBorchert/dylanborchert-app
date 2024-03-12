@@ -11,7 +11,7 @@ import remarkToc from "remark-toc";
 import rehypeSlug from "rehype-slug";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus, vs } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import ImageView from './ImageView';
+import ImageView from './strapi-components/ImageView';
 import { useMemo } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { useTheme } from "next-themes";
@@ -162,7 +162,9 @@ export default function ContentProcessorClient({ content, allContent }: any) {
             )
           case 'general.single-image':
             return (
-              handleImageView(item as any, index as number)
+              <div key={index}>
+                {handleImageView(item as any, index as number)}
+              </div>
             )
           // case 'general.skill-bubble':
           //   return (

@@ -28,8 +28,7 @@ export default function ImageView({ item, index }: any) {
             <h1 className="font-bold text-xl my-3 max-w-[1290px] mx-auto">
                 {item.title}
             </h1>
-            <div className='w-fit relative group'>
-                <span onClick={handleClick} tabIndex={index} className="group-hover:opacity-100 opacity-0 absolute top-2 right-2 px-1 rounded-full cursor-pointer transition duration-400 ease-in-out mix-blend-exclusion ">click view</span>
+            <div className='w-fit cursor-pointer' onClick={handleClick}>
                 <div className="w-full flex flex-col align-middle justify-center">
                     <Image src={`https://strapi.phantommedia.online${item.image.data.attributes.url}`} width={1000} height={1000} alt='' key={index} className='object-contain mx-auto max-h-[50dvh] w-auto' />
                 </div>

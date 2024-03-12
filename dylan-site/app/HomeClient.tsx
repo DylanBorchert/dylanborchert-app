@@ -2,7 +2,7 @@
 import Typewriter from 'typewriter-effect';
 import ContentProcessorClient from "@/components/ContentProcessorClient"
 import { useEffect, useState } from "react";
-import Footer from '../Footer';
+import Footer from '../components/Footer';
 
 
 

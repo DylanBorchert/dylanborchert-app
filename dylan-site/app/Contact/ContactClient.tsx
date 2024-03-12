@@ -1,13 +1,9 @@
 "use client";
-
 import { sendEmail, FormData } from '@/hooks/send-email';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useRef, useEffect } from 'react';
 import classnames from 'classnames';
-import Footer from '../Footer';
-
-
-
+import Footer from '../../components/Footer';
 
 export default function Contact() {
 
@@ -21,49 +17,36 @@ export default function Contact() {
         formState: { errors }
     } = useForm<FormData>();
 
-    const onSubmit: SubmitHandler<FormData> = (data: FormData) => {
-        if (!data.name && !data.email && !data.message) {
-            if (!data.nameksljf) {
-                setError("nameksljf", {
-                    type: "manual",
-                    message: "Please provide a name",
-                })
+    const onSubmit: SubmitHandler<FormData> = (data) => {
+        const fields: { key: keyof FormData; message: string }[] = [
+            { key: 'nameksljf', message: 'Please provide a name' },
+            { key: 'emaillkjkl', message: 'Please provide an email' },
+            { key: 'messagelkjkl', message: 'Please provide a message' },
+        ];
+
+        let hasError = false;
+
+        fields.forEach(({ key, message }) => {
+            if (!data[key]) {
+                setError(key, {
+                    type: 'manual',
+                    message,
+                });
+                hasError = true;
             }
-            if (!data.emaillkjkl) {
-                setError("emaillkjkl", {
-                    type: "manual",
-                    message: "Please provide an email",
-                })
-            }
-            if (!data.messagelkjkl) {
-                setError("messagelkjkl", {
-                    type: "manual",
-                    message: "Please provide a message",
-                })
-            }
-            if (!data.nameksljf || !data.emaillkjkl || !data.messagelkjkl) {
-                return;
-            }
-            sendEmail(data).then((res) => {
-                if (res.message) {
-                    alert(res.message);
-                    reset();
-                } else {
-                    alert("Something went wrong, please try again later");
-                }
-            });
-            return;
-        }
+        });
+
+        if (hasError) return;
+
         sendEmail(data).then((res) => {
             if (res.message) {
                 alert(res.message);
                 reset();
             } else {
-                alert("Something went wrong, please try again later");
+                alert('Something went wrong, please try again later');
             }
         });
-    }
-
+    };
 
 
     return (
@@ -72,13 +55,13 @@ export default function Contact() {
             <p className="mx-auto font-semibold text-xl">Contact Me</p>
             <form className="flex flex-col coolinput sm:mx-auto sm:min-w-[50%] " onSubmit={handleSubmit(onSubmit)} ref={formRef}>
                 {/* H o n e y p o t */}
-                <label className="lkjkljf" htmlFor="name"></label>
+                <label className="lkjkljf" htmlFor="name">Name</label>
                 <input className="lkjkljf" tabIndex={5} autoComplete="off" type="text" id="name" placeholder="name" {...register('name')} />
                 {errors.name && <p className='lkjkljf'>{errors.name.message}</p>}
-                <label className="lkjkljf" htmlFor="email"></label>
+                <label className="lkjkljf" htmlFor="email">E-mail</label>
                 <input className="lkjkljf" tabIndex={6} autoComplete="off" type="text" id="email" placeholder="e-mail" {...register('email')} />
                 {errors.email && <p className='lkjkljf'>{errors.email.message}</p>}
-                <label className="lkjkljf" htmlFor="message"></label>
+                <label className="lkjkljf" htmlFor="message">Message</label>
                 <textarea className="lkjkljf" tabIndex={7} autoComplete="off" id="message" placeholder="message" {...register('message')} />
                 {errors.message && <p className='lkjkljf'>{errors.message.message}</p>}
                 {/* F o r m */}

@@ -16,18 +16,24 @@ export async function sendEmail(formData: FormData) {
 		return { message: "Email under maintance" };
 	}
 
-	if (formData.name || formData.email || formData.message) {
+	var {
+		emaillkjkl: email,
+		nameksljf: name,
+		messagelkjkl: message,
+		name: HoneyName,
+		email: HoneyEmail,
+		message: HoneyMessage,
+	} = formData;
+
+	let isSpam = false;
+
+	if (HoneyName || HoneyEmail || HoneyMessage) {
 		if (process.env.SEND_SPAM === "false") {
+			// if you want to test the email functionality, set SEND_SPAM to true
 			await new Promise((resolve) => setTimeout(resolve, 1000)); // simulate delay
 			return { message: "Email sent ;)" };
 		}
-		var { name, email, message } = formData;
-	} else {
-		var {
-			emaillkjkl: email,
-			nameksljf: name,
-			messagelkjkl: message,
-		} = formData;
+		isSpam = true;
 	}
 
 	const transport = nodemailer.createTransport({
@@ -44,7 +50,10 @@ export async function sendEmail(formData: FormData) {
 		bcc: process.env.MY_PERSONAL_EMAIL,
 		// cc: email, (uncomment this line if you want to send a copy to the sender)
 		subject: `Message from ${name} (${email})`,
-		text: message,
+		text:
+			process.env.SEND_SPAM === "true" && isSpam // if SEND_SPAM is true, send a copy of the message to the email provided in the form
+				? `Spam from ${HoneyName} (${HoneyEmail})\nHoney Message:\n${HoneyMessage}\nReal Message:\n${message}`
+				: message,
 	};
 
 	const sendMailPromise = () =>

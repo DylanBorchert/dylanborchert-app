@@ -1,8 +1,11 @@
 "use client";
-import ContentProcessorClient from "../ContentProcessorClient";
-import Footer from "../Footer";
+import { use, useEffect, useMemo } from "react";
+import ContentProcessorClient from "../../../components/ContentProcessorClient";
+import Footer from "../../../components/Footer";
 
-export default function BlogClient({ content }: any) {
+
+
+export default function ProjectClient({ content }: any) {
 
     return (
         <div className="flex flex-col min-h-[calc(100dvh-48px)]">

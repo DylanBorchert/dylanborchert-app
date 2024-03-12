@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 import { useScrollDirection } from 'react-use-scroll-direction'
 import { Rotate as Hamburger } from 'hamburger-react'
 import SlideText from "@/components/animated-components/SlideText";
-import NavMenu from "./NavMenu";
+import NavMenu from "./Navigation/NavMenu";
 import classNames from "classnames";
 import Link from 'next/link';
 import { useTheme } from "next-themes";

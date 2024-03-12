@@ -4,7 +4,7 @@ import Socials from "@/components/Socials"
 import Link from 'next/link';
 import Image from "next/image";
 import { Suspense } from "react";
-import Footer from "../Footer";
+import Footer from "../../components/Footer";
 
 
 export default function About({ content }: any) {

@@ -1,6 +1,6 @@
 "use client";
-import ContentProcessorClient from "../ContentProcessorClient";
-import Footer from "../Footer";
+import ContentProcessorClient from "../../components/ContentProcessorClient";
+import Footer from "../../components/Footer";
 
 
 export default function ProjectsClient({ content, allProjects }: any) {

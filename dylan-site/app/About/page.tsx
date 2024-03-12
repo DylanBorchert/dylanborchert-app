@@ -1,4 +1,4 @@
-import AboutClient from "@/components/About/AboutClient";
+import AboutClient from "@/app/About/AboutClient";
 import ToastError from "@/components/ToastError";
 import GeometricGradient from "@/components/animated-components/GeometricGradient";
 import { getAboutPage } from '@/hooks/Strapi'

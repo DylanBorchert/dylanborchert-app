@@ -1,7 +1,7 @@
 import DotParticles from '@/components/animated-components/DotParticals.jsx'
 import Footer from '@/components/Footer';
-import HomeClient from '@/components/Home/HomeClient';
-import NavBar from '@/components/NavBar';
+import HomeClient from '@/app/HomeClient';
+import NavBar from '@/components/Navigation/NavBar';
 import ToastError from '@/components/ToastError';
 import { getHomePage } from '@/hooks/Strapi'
 import { Metadata } from "next";

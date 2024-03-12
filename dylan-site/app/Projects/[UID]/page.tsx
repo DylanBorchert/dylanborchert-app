@@ -1,8 +1,8 @@
-import ProjectClient from '@/components/Projects/ProjectClient';
-import ToastError from '@/components/ToastError';
 import { getProject } from '@/hooks/Strapi'
-import { useEffect } from 'react';
+import BlogClient from "@/app/Blogs/[UID]/BlogClient";
+import ToastError from '@/components/ToastError';
 import { Metadata, ResolvingMetadata } from "next";
+import ProjectClient from './ProjectClient';
 
 type Props = {
     params: {
@@ -10,7 +10,6 @@ type Props = {
     }
     searchParams: { [key: string]: string | string[] | undefined }
 }
-
 
 export async function generateMetadata({ params, searchParams }: Props, parent: ResolvingMetadata): Promise<Metadata> {
 
@@ -26,13 +25,13 @@ export async function generateMetadata({ params, searchParams }: Props, parent: 
     } else {
         return {
             title: "Project",
-            description: "A Project by Dylan Borchert"
+            description: "A Project by Dylan Borchert",
         }
     }
 }
 
 export default async function Page({ params }: { params: { UID: string } }) {
-    const { data, error } = await getProject(params.UID)
+    const { data, error } = await getProject(params.UID);
 
     return (
         <div>
