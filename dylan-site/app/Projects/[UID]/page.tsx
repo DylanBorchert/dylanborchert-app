@@ -1,5 +1,4 @@
 import { getProject } from '@/hooks/Strapi'
-import BlogClient from "@/app/blogs/[UID]/BlogClient";
 import ToastError from '@/components/ToastError';
 import { Metadata, ResolvingMetadata } from "next";
 import ProjectClient from './ProjectClient';
