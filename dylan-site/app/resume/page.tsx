@@ -1,3 +1,4 @@
+"use server"
 import { useEffect } from "react"
 
 export default function Resume() {
