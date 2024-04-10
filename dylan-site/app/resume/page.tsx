@@ -1,7 +1,14 @@
 "use client"
 import { useEffect } from "react"
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+    title: 'dylanborchert.ca',
+    description: 'My resmue',
+    robots: 'index, follow',
+}
 export default function Resume() {
+
 
     useEffect(() => {
         setTimeout(() => {
