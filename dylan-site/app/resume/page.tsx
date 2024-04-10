@@ -1,4 +1,3 @@
-"use server"
 import RicRoll from "./ricroll"
 import { Metadata } from "next";
 
