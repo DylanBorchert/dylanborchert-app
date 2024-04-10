@@ -17,50 +17,50 @@ function NavigationMenu(props: any) {
                             <SlideTextLarge
                                 text1={
                                     <div className=" small-caps">
-                                        Home
+                                        home
                                     </div>}
                                 text2={
                                     <div className="text-transparent font-outline-white small-caps">
-                                        Home
+                                        home
                                     </div>
                                 }
                             />
                         </Link>
-                        <Link href="/About">
+                        <Link href="/about">
                             <SlideTextLarge
                                 text1={
                                     <div className="  small-caps">
-                                        About
+                                        about
                                     </div>}
                                 text2={
                                     <div className="text-transparent font-outline-white small-caps">
-                                        About
+                                        about
                                     </div>
                                 }
                             />
                         </Link>
-                        <Link href="/Projects">
+                        <Link href="/projects">
                             <SlideTextLarge
                                 text1={
                                     <div className="  small-caps">
-                                        Projects
+                                        projects
                                     </div>}
                                 text2={
                                     <div className="text-transparent font-outline-white small-caps">
-                                        Projects
+                                        projects
                                     </div>
                                 }
                             />
                         </Link>
-                        <Link href="/Blogs">
+                        <Link href="/blogs">
                             <SlideTextLarge
                                 text1={
                                     <div className=" small-caps">
-                                        Blogs
+                                        blogs
                                     </div>}
                                 text2={
                                     <div className="text-transparent font-outline-white small-caps">
-                                        Blogs
+                                        blogs
                                     </div>
                                 }
                             />

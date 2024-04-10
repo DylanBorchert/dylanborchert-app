@@ -1,4 +1,4 @@
-import BlogsClient from "@/app/Blogs/BlogsClient";
+import BlogsClient from "@/app/blogs/BlogsClient";
 import ToastError from "@/components/ToastError";
 import { getBlogPage, getAllBlogs } from "@/hooks/Strapi";
 import { Metadata } from "next";

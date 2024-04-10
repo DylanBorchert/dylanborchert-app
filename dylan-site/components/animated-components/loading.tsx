@@ -1,4 +1,4 @@
-export default function Loading() {
+export default function LoadingPage() {
     return (
         <div className="w-full h-[100dvh] bg-background-color/50 flex justify-center align-middle absolute backdrop-blur-sm z-50 top-0">
             <div

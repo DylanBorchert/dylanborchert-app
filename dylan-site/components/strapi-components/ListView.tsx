@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Tags from "../Tags";
 
 
 function ListView(props: any) {
@@ -39,11 +40,7 @@ function ListView(props: any) {
                                         </p>
                                     </div>
                                     <div className="flex-grow"></div>
-                                    <div className="flex w-full">
-                                        {slide.attributes.tags?.data.map((tag: any) => (
-                                            <p className="text-xs text-primary-1 outline outline-primary-1 outline-[1px] rounded-full px-2 py-1 mr-2 text-opacity-100" key={tag.attributes.tag}>{tag.attributes.tag}</p>
-                                        ))}
-                                    </div>
+                                    <Tags allTags={slide.attributes} />
                                 </div>
                             </li>
                         </Link>

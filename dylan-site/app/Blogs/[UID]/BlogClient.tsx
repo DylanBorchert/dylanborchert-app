@@ -1,6 +1,8 @@
 "use client";
+import { useEffect } from "react";
 import ContentProcessorClient from "../../../components/ContentProcessorClient";
 import Footer from "../../../components/Footer";
+import Tags from "@/components/Tags";
 
 export default function BlogClient({ content }: any) {
 
@@ -14,6 +16,8 @@ export default function BlogClient({ content }: any) {
                     <span className="dark:text-white/65 text-black/65">
                         {new Date(content.postDate || content.updatedAt).toLocaleString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })}
                     </span>
+                    <div className="mt-5"></div>
+                    <Tags allTags={content} />
                     <p className="mt-5">
                         {content.summary}
                     </p>

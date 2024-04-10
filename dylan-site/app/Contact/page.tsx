@@ -1,5 +1,5 @@
 "use server";
-import ContactClient from "@/app/Contact/ContactClient";
+import ContactClient from "@/app/contact/ContactClient";
 import DotParticals from "@/components/animated-components/DotParticals";
 
 export default async function Home() {

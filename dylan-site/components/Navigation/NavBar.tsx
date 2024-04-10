@@ -45,7 +45,7 @@ const NavBar = (props: any) => {
     }
 
     const breadcrumb = useMemo(() => {
-        if (pathname == "/") return "/Home";
+        if (pathname == "/") return "/home";
         return "/" + pathname.split("/")[1]
     }, [pathname]);
 
@@ -126,22 +126,22 @@ const NavBar = (props: any) => {
                     <div className="sm:flex flex-row justify-around z-20 hidden">
                         <Link href="/">
                             <span className=" h-[48px] leading-[48px] text-sm hover:text-primary-1 px-3">
-                                Home
+                                home
                             </span>
                         </Link>
-                        <Link href="/About" >
+                        <Link href="/about" >
                             <span className=" h-[48px] leading-[48px] text-sm hover:text-primary-1 px-3">
-                                About
+                                about
                             </span>
                         </Link>
-                        <Link href="/Projects">
+                        <Link href="/projects">
                             <span className=" h-[48px] leading-[48px] text-sm hover:text-primary-1 px-3">
-                                Projects
+                                projects
                             </span>
                         </Link>
-                        <Link href="/Blogs">
+                        <Link href="/blogs">
                             <span className=" h-[48px] leading-[48px] text-sm hover:text-primary-1 px-3">
-                                Blogs
+                                blogs
                             </span>
                         </Link>
                         <div className="flex flex-col justify-center">

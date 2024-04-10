@@ -39,11 +39,11 @@ export default function ContentProcessorClient({ content, allContent }: any) {
   const handleListOrCarousel = (item: any) => {
     if (item.style === 'list') {
       return (
-        <ListView content={item.blogs ? item.blogs.data : item.projects.data} type={item.blogs ? 'Blogs' : 'Projects'} />
+        <ListView content={item.blogs ? item.blogs.data : item.projects.data} type={item.blogs ? 'blogs' : 'projects'} />
       )
     } else if (item.style === 'carousel') {
       return (
-        <Carousel content={item.blogs ? item.blogs.data : item.projects.data} type={item.blogs ? 'Blogs' : 'Projects'} />
+        <Carousel content={item.blogs ? item.blogs.data : item.projects.data} type={item.blogs ? 'blogs' : 'projects'} />
       )
     }
   }

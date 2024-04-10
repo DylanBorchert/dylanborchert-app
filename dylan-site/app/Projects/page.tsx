@@ -1,4 +1,4 @@
-import ProjectsClient from "@/app/Projects/ProjectsClient";
+import ProjectsClient from "@/app/projects/ProjectsClient";
 import ToastError from "@/components/ToastError";
 import { getAllProjects, getProjectPage } from "@/hooks/Strapi";
 import { Metadata } from "next";
