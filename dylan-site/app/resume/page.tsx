@@ -5,11 +5,11 @@ export default function Resume() {
 
     useEffect(() => {
         setTimeout(() => {
-            window.location.href = "youtube://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ?mute=0;autoplay=1"
         }, 10)
     }, [])
 
     return (
-        <div>hehe</div>
+        <></>
     )
 }
