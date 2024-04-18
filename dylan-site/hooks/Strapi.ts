@@ -135,6 +135,7 @@ export const getBlog = async (UID: string) => {
 			"populate[content][populate][image][populate]": "*",
 			"populate[content][populate][blogs][populate]": "cover, tags",
 			"populate[content][populate][projects][populate]": "cover, tags",
+			"populate[content][populate][tabs][populate]": "*",
 		},
 	};
 

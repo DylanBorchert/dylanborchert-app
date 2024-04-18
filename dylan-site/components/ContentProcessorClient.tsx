@@ -15,6 +15,7 @@ import ImageView from './strapi-components/ImageView';
 import { useMemo } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { useTheme } from "next-themes";
+import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 
 
 
@@ -66,20 +67,21 @@ export default function ContentProcessorClient({ content, allContent }: any) {
     return (
       <ReactMarkdown
         key={index}
-        className="markdown max-w-[1290px] mx-auto px-5 text-none"
+        className="markdown max-w-[1290px] mx-auto text-none"
         remarkPlugins={[remarkToc, remarkGfm]}
         rehypePlugins={[rehypeSlug]}
         components={{
           code: ({ node, inline, className, children, ...content }: any) => {
             const match = /language-(\w+)/.exec(className || "");
             return !inline && match ? (
-              <div className='relative'>
+              <div className='relative group/code'>
                 <div className="text-foreground-color absolute right-0 group code-copy w-full flex justify-between py-2 border-b-[1px] border-black/15 dark:border-white/15 px-4">
+                  <span className="text-sm">{node?.data?.meta ?? ""}</span>
                   <span className="text-sm">{match[1]}</span>
-                  <CopyToClipboard text={String(children)} onCopy={() => notify()}>
-                    <IoIosCopy className="inline cursor-pointer h-5 w-5 ml-2 opacity-40 hover:opacity-100" />
-                  </CopyToClipboard>
                 </div>
+                <CopyToClipboard text={String(children)} onCopy={() => notify()}>
+                  <IoIosCopy className="group-hover/code:block hidden absolute right-2 top-12 cursor-pointer h-5 w-5 opacity-40 hover:opacity-100" />
+                </CopyToClipboard>
                 <SyntaxHighlighter
                   {...content}
                   className={"rounded-md outline-none pt-20 code-block"}
@@ -149,7 +151,9 @@ export default function ContentProcessorClient({ content, allContent }: any) {
               </div>
             )
           case 'general.markdown':
-            return (MarkdownHelper(item, index))
+            return (<div className='px-5'>
+              {MarkdownHelper(item, index)}
+            </div>)
           case 'general.showcase-project':
           case 'general.showcase-blog':
             return (
@@ -175,9 +179,36 @@ export default function ContentProcessorClient({ content, allContent }: any) {
           //       <SkillBubble content={item} />
           //     </div>
           //   )
-          default:
-            console.warn("Unknown component type: " + item["__component"])
+          case 'nested.tab-view':
             console.log(item)
+            return (
+              <div key={index} className='px-5'>
+                <h1 className="font-bold text-xl my-3 max-w-[1290px] mx-auto">
+                  {item["title"]}
+                </h1>
+                <div className='mx-auto max-w-[1290px]'>
+                  <div className='outline outline-1 outline-gray-500 rounded-md p-2'>
+                    <Tabs>
+                      <TabList className="px-1 flex gap-1 dark:bg-[#1E1E1E] bg-[#E6E6E6] rounded-md h-10 align-middle">
+                        {item.tabs.map((tab: any, index: number) => (
+                          <Tab key={index} className="h-8 leading-8 px-8 rounded-md my-1 text-sm cursor-pointer" selectedClassName='dark:bg-black bg-white'>{tab.title}</Tab>
+                        ))}
+                      </TabList>
+                      {item.tabs.map((tab: any, index: number) => (
+                        <TabPanel>
+                          <div>
+                            {MarkdownHelper(tab, index)}
+                          </div>
+                        </TabPanel>
+                      ))}
+
+                    </Tabs>
+                  </div>
+                </div>
+              </div>
+            )
+          default:
+            console.warn("Unknown component type: " + item["__component"], item)
         }
       })
       }
