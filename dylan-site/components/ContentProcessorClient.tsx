@@ -200,7 +200,7 @@ export default function ContentProcessorClient({ content, allContent }: any) {
                   <div className='mx-auto max-w-[1290px]'>
                     <div className='outline outline-1 outline-gray-500 rounded-md p-2'>
                       <Tabs>
-                        <TabList className="px-1 flex gap-1 dark:bg-[#1E1E1E] bg-[#E6E6E6] rounded-md h-10 align-middle">
+                        <TabList className="px-1 flex gap-1 dark:bg-[#1E1E1E] bg-[#E6E6E6] rounded-md h-10 align-middle overflow-x-auto">
                           {item.tabs.map((tab: any, index: number) => (
                             <Tab key={index} className="h-8 leading-8 px-8 rounded-md my-1 text-sm cursor-pointer" selectedClassName='dark:bg-black bg-white'>{tab.title}</Tab>
                           ))}
