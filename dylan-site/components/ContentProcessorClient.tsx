@@ -67,7 +67,7 @@ export default function ContentProcessorClient({ content, allContent }: any) {
     return (
       <ReactMarkdown
         key={index}
-        className="markdown max-w-[1290px] mx-auto text-none"
+        className="markdown max-w-[1290px] mx-auto text-none py-2"
         remarkPlugins={[remarkToc, remarkGfm]}
         rehypePlugins={[rehypeSlug]}
         components={{
@@ -124,9 +124,11 @@ export default function ContentProcessorClient({ content, allContent }: any) {
           case 'general.highlight-blogs':
             return (
               <div key={index}>
-                <h1 className="font-bold text-xl my-3 max-w-[1290px] mx-auto pl-5">
-                  {item["title"]}
-                </h1>
+                <div className='px-5'>
+                  <h1 className="font-bold text-xl my-3 max-w-[1290px] mx-auto">
+                    {item["title"]}
+                  </h1>
+                </div>
                 {handleListOrCarousel(item)}
               </div>
             )
@@ -134,9 +136,11 @@ export default function ContentProcessorClient({ content, allContent }: any) {
             item.projects = allContent.projects
             return (
               <div key={index}>
-                <h1 className="font-bold text-xl my-3 max-w-[1290px] mx-auto pl-5">
-                  {item["title"]}
-                </h1>
+                <div className='px-5'>
+                  <h1 className="font-bold text-xl my-3 max-w-[1290px] mx-auto">
+                    {item["title"]}
+                  </h1>
+                </div>
                 {handleListOrCarousel(item)}
               </div>
             )
@@ -144,9 +148,11 @@ export default function ContentProcessorClient({ content, allContent }: any) {
             item.blogs = allContent.blogs
             return (
               <div key={index}>
-                <h1 className="font-bold text-xl my-3 max-w-[1290px] mx-auto pl-5">
-                  {item["title"]}
-                </h1>
+                <div className='px-5'>
+                  <h1 className="font-bold text-xl my-3 max-w-[1290px] mx-auto">
+                    {item["title"]}
+                  </h1>
+                </div>
                 {handleListOrCarousel(item)}
               </div>
             )
@@ -158,9 +164,11 @@ export default function ContentProcessorClient({ content, allContent }: any) {
           case 'general.showcase-blog':
             return (
               <div key={index}>
-                <h1 className="font-bold text-xl my-3 max-w-[1290px] mx-auto pl-5">
-                  {item["title"]}
-                </h1>
+                <div className='px-5'>
+                  <h1 className="font-bold text-xl my-3 max-w-[1290px] mx-auto">
+                    {item["title"]}
+                  </h1>
+                </div>
                 <Showcase content={item} />
               </div>
             )
@@ -182,27 +190,31 @@ export default function ContentProcessorClient({ content, allContent }: any) {
           case 'nested.tab-view':
             console.log(item)
             return (
-              <div key={index} className='px-5'>
-                <h1 className="font-bold text-xl my-3 max-w-[1290px] mx-auto">
-                  {item["title"]}
-                </h1>
-                <div className='mx-auto max-w-[1290px]'>
-                  <div className='outline outline-1 outline-gray-500 rounded-md p-2'>
-                    <Tabs>
-                      <TabList className="px-1 flex gap-1 dark:bg-[#1E1E1E] bg-[#E6E6E6] rounded-md h-10 align-middle">
+              <div key={index}>
+                <div className='px-5'>
+                  <h1 className="font-bold text-xl my-3 max-w-[1290px] mx-auto">
+                    {item["title"]}
+                  </h1>
+                </div>
+                <div className='px-5'>
+                  <div className='mx-auto max-w-[1290px]'>
+                    <div className='outline outline-1 outline-gray-500 rounded-md p-2'>
+                      <Tabs>
+                        <TabList className="px-1 flex gap-1 dark:bg-[#1E1E1E] bg-[#E6E6E6] rounded-md h-10 align-middle">
+                          {item.tabs.map((tab: any, index: number) => (
+                            <Tab key={index} className="h-8 leading-8 px-8 rounded-md my-1 text-sm cursor-pointer" selectedClassName='dark:bg-black bg-white'>{tab.title}</Tab>
+                          ))}
+                        </TabList>
                         {item.tabs.map((tab: any, index: number) => (
-                          <Tab key={index} className="h-8 leading-8 px-8 rounded-md my-1 text-sm cursor-pointer" selectedClassName='dark:bg-black bg-white'>{tab.title}</Tab>
+                          <TabPanel>
+                            <div>
+                              {MarkdownHelper(tab, index)}
+                            </div>
+                          </TabPanel>
                         ))}
-                      </TabList>
-                      {item.tabs.map((tab: any, index: number) => (
-                        <TabPanel>
-                          <div>
-                            {MarkdownHelper(tab, index)}
-                          </div>
-                        </TabPanel>
-                      ))}
 
-                    </Tabs>
+                      </Tabs>
+                    </div>
                   </div>
                 </div>
               </div>
