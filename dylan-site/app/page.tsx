@@ -3,9 +3,11 @@ import Footer from '@/components/Footer';
 import HomeClient from '@/app/HomeClient';
 import NavBar from '@/components/Navigation/NavBar';
 import ToastError from '@/components/ToastError';
-import { getHomePage } from '@/hooks/Strapi'
+import { getHomePage } from '@/util/StrapiREST'
+// import { getHomePage } from '@/util/StrapiQL';
 import { Metadata } from "next";
 import { NextSeo } from 'next-seo';
+
 
 export const metadata: Metadata = {
   title: 'dylanborchert.ca',

@@ -1,6 +1,6 @@
 import BlogsClient from "@/app/blogs/BlogsClient";
 import ToastError from "@/components/ToastError";
-import { getBlogPage, getAllBlogs } from "@/hooks/Strapi";
+import { getBlogPage, getAllBlogs } from "@/util/StrapiREST";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

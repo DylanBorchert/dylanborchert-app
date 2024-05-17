@@ -1,7 +1,7 @@
 import AboutClient from "@/app/about/AboutClient";
 import ToastError from "@/components/ToastError";
 import GeometricGradient from "@/components/animated-components/GeometricGradient";
-import { getAboutPage } from '@/hooks/Strapi'
+import { getAboutPage } from '@/util/StrapiREST'
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

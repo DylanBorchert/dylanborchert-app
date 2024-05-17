@@ -1,6 +1,6 @@
 import ProjectsClient from "@/app/projects/ProjectsClient";
 import ToastError from "@/components/ToastError";
-import { getAllProjects, getProjectPage } from "@/hooks/Strapi";
+import { getAllProjects, getProjectPage } from "@/util/StrapiREST";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

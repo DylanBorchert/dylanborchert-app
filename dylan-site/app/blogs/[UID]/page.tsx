@@ -1,4 +1,4 @@
-import { getBlog } from '@/hooks/Strapi'
+import { getBlog } from '@/util/StrapiREST'
 import ToastError from '@/components/ToastError';
 import { Metadata, ResolvingMetadata } from "next";
 import BlogClient from './BlogClient';

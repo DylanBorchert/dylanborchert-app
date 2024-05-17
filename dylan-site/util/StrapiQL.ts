@@ -1,21 +1,25 @@
-import HomePage from "../Schemas/HomePage";
+"use server";
 
-const fetchData = async (url: string, params: any) => {
+import { HomePage } from "@/Schemas/HomePage";
+
+const queryData = async (query: any) => {
+	const url = `${process.env.STRAPI_HOST}/graphql`;
 	try {
-		const queryParams = new URLSearchParams(params.params).toString();
-		const fullUrl = `${url}?${queryParams}`;
 		const headers = {
 			next: {
 				revalidate: 60, // 1 minute
 			},
-			method: "GET",
+			method: "POST",
 			headers: {
 				Authorization: `Bearer ${process.env.STRAPI_KEY}`,
 				"Content-Type": "application/json",
 			},
+			body: JSON.stringify({
+				query: query,
+			}),
 		};
 
-		const res = await fetch(fullUrl, headers);
+		const res = await fetch(url, headers);
 
 		if (!res.ok) {
 			return { data: undefined, error: "Error with Network" };
@@ -33,7 +37,10 @@ const fetchData = async (url: string, params: any) => {
 
 		return { data: undefined, error: "No data found" };
 	} catch (error) {
-		console.error("error", error);
-		return { data: undefined, error };
+		return { data: undefined, error: error };
 	}
+};
+
+export const getHomePage = async () => {
+	return queryData(HomePage);
 };

@@ -1,5 +1,5 @@
 "use client";
-import { sendEmail, FormData } from '@/hooks/send-email';
+import { sendEmail, FormData } from '@/util/send-email';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useRef, useEffect } from 'react';
 import classnames from 'classnames';
